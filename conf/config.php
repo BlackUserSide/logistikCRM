@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$_SERVER['DOCUMENT_ROOT'] = 'C:\Xqesc\OpenServer\domains\Insta';
+$_SERVER['DOCUMENT_ROOT'] = 'C:\Xqesc\OpenServer\domains\logistikCRM';
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('CONTROLLER_PATH', ROOT. '/controllers/');
 define('MODEL_PATH', ROOT. '/models/');

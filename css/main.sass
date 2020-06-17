@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=PT+Serif&display=swap');
+body
+    position: relative
+    font-family: 'PT Serif', serif
+    font-size: 16px
+.login-wrapper
+    position: relative
+    text-align: center
+    .form-login
+        padding-top: 15px
+        padding-bottom: 25px
+        position: relative
+        right: 0%
+        top: 150px
+        display: inline-block
+        background-image: linear-gradient(to right bottom, #b859cf, #9843ae, #792d8e, #5b186f, #3f0152);
+        width: 550px
+        color: #ffffff
+        border-radius: 15px
+        .logo-form-login
+            p
+                font-family: 'Metal Mania', cursive;
+            .h3
+                font-size: 36px
+                text-transform: uppercase
+        .input-wrapper
+            position: relative
+            display: inline-block
+            margin-bottom: 25px
+            input
+                position: relative
+                z-index: 2
+                background: transparent
+                border: none
+                border-bottom: 2px solid #fff
+                outline: none
+                color: #ffffff
+                
+                &:focus
+                    + .placeholder-input
+                        animation-name: labels
+                        animation-duration: 0.5s
+                        animation-fill-mode: forwards
+            .placeholder-input
+                position: absolute
+                z-index: 1
+                left: 0
+                transition: .5s ease
+                font-size: 16px
+                
+        .btn-login
+            background-color: transparent
+            border: none
+            border: 2px solid #ffffff
+            color: #ffffff
+            border-radius: 10px
+            padding: 5px 15px
+            font-weight: 700
+            transition: .5s ease
+            outline: none
+            &:hover
+                transform: scale(1.1)
+
+
+
+@keyframes labels
+    from
+        bottom: 0px
+ 
+    to
+        font-size: 14px 
+        bottom: 22px

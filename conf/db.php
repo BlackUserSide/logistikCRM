@@ -7,7 +7,7 @@ class DB{
     const USER = "root";
     const PASS = 'root';
     const HOST = "localhost";
-    const DB = "instashop";
+    const DB = "logicCrm";
 
     public static function cannToDB() {
         $user = self::USER;
