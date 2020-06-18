@@ -8,17 +8,19 @@ $(document).ready(function () {
             data: form.serialize(),
             dataType: "json",
             success: function (result) {
-               if(result.status === 'uncorrect') {
-                   $('.error-form').text('Неправильный логин или пароль')
-                   $('.error-form').fadeIn()
-               }
+                if (result.status === 'uncorrect') {
+                    $('.error-form').text('Неправильный логин или пароль')
+                    $('.error-form').fadeIn()
+                } else {
+                    location.reload();
+                }
             }
         });
     })
     $('.input-wrapper input').change(function () {
         let idInp = $(this).attr('id')
         let data = $(this).val()
-        
+
         if (data !== '') {
             if (idInp === 'login') {
                 $('#login-span').animate({
