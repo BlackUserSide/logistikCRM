@@ -16,6 +16,7 @@ class IndexModel extends Model
         }
         if(!empty($result)) {
             foreach($result as $key => $val) {
+                $_SESSION['user']['id'] = $val['id'];
                 $_SESSION['user']['login'] = $val['login'];
                 $_SESSION['user']['email'] = $val['email'];
                 $_SESSION['user']['name'] = $val['name'];
