@@ -18,7 +18,7 @@ class CabinetController extends Controller
         if (!isset($_SESSION['user'])) {
             header('Location: /');
         }
-        $this->pageData['taskData'] = $this->model->getTask();
+        
         $this->pageData['title'] = 'Главная страница || TransCRM';
         $this->view->render($this->pageTpl, $this->pageData);
     }
@@ -27,5 +27,6 @@ class CabinetController extends Controller
         session_destroy();
         echo json_encode(array('status' => 'success'));
     }
+    
     
 }
