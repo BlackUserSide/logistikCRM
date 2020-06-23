@@ -29,7 +29,7 @@
         </div>
         <div class="content-wrapper">
             <div class="header-content">
-                <h1 class="h1">Главная</h1>
+                <h1 class="h1"><?php echo $pageData['titleMain'] ?></h1>
                 <div class="open-task-wrapper">
                     <p class="task-open"><a href="/cabinet/task"><?php echo $pageData['countTask'] ?> активных заданий</a></p>
                 </div>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="notifiction-profile">
                     <a href="#" class="notification-link"><i class="fas fa-bell"></i><span></span></a>
-                    <a href="/profile" class="profile-link">S</a>
+                    <a href="/profile" class="profile-link"><?php echo substr($_SESSION['user']['name'], 0, 1) ?></a>
                 </div>
             </div>
             <div class="content-task">

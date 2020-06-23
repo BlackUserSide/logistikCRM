@@ -1,9 +1,8 @@
 $(document).ready(function () {
-    $('.home-link').addClass('active-link-nav');
+    $('.task-link').addClass('active-link-nav');
     $.each($('.name-give'), function (index, value) {
         let th = $(this);
         let idGive = th.attr('id');
-         
         $.ajax({
             type: "POST",
             url: "/cabinet/getNameTask",

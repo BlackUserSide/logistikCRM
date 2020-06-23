@@ -11,6 +11,7 @@ body
     margin: 0
     height: 100%
     min-height: 732px
+    overflow: hidden
     
 section
     position: relative
@@ -127,7 +128,7 @@ section
     position: relative
     overflow: hidden
     width: 100%
-    max-height: 760px
+    
     height: 100%
     display: flex
     .navbar-wrapper
@@ -274,11 +275,14 @@ section
             &:hover
                 transform: scale(1.2)
 .content-task
-    padding-top: 50px
-    padding-bottom: 50px
+    
     display: flex
     flex-direction: row
+   
+    height: 100%
+
     justify-content: space-around
+    
     .close-task
         display: flex
         flex-direction: column
@@ -391,6 +395,142 @@ section
                 right: 10px
                 top: -5px
                 font-size: 22px
+.task-content-wrapper
+    display: flex
+    width: 100%
+    flex-direction: row
+    margin: 0 25px
+    padding: 15px 25px
+    position: relative
+    flex-wrap: wrap
+    .task-item-wrapper
+        width: 250px
+        margin: 15px 35px
+        background-color: #F2F8F6
+        padding: 15px 20px
+        font-family: 'Roboto';
+        transition: .5s ease
+        cursor: pointer
+        position: relative
+        margin-bottom: 15px
+        &:hover
+            transform: scale(1.1)
+        .name-give
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 21px;
+        .task-text
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 14px;
+        .name-substr
+            display: inline-block
+            text-decoration: none
+            color: #ffffff
+            background-color: #20AFFF
+            padding: 10px 17px
+            border-radius: 50%
+            font-size: 24px
+        .tag-task
+            display: inline-block
+            background-color: #FFBCBC
+            border-radius: 5px
+            font-family: Roboto
+            font-style: normal
+            font-weight: normal
+            font-size: 10px
+            line-height: 12px
+            color: #ffffff
+            padding: 5px 15px
+            position: relative
+            left: 25px
+        .status-task
+            display: inline-block
+            position: absolute
+            
+            right: 10px
+            top: -5px
+            font-size: 22px
+
+.hidden-card-task
+    position: relative
+    overflow: hidden
+    
+    .text-container
+        padding: 20px 25px
+        .str-name-hidden
+            display: inline-block
+            background-color: #20AFFF
+            color: #ffffff
+            padding: 15px 20px
+            border-radius: 50%
+        .name-hidden-task
+            display: inline-block
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            margin: 0 15px
+        .status-hidden-task
+            display: inline-block
+            position: absolute
+            right: 10px
+            top: 35px
+            i
+                display: inline-block
+                margin-right: 5px
+        .data-hidden-task-wrapper
+            font-size: 18px
+            span
+                display: inline-block
+                margin-left: 5px
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 19px;
+                color: #B9B9B9
+        .tegs-task-hidden-wrapper
+            font-size: 18px
+            span
+                display: inline-block
+                margin-left: 5px
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 19px;
+                color: #B9B9B9
+    .text-hidden-wrapper
+        margin-bottom: 10px
+        padding: 5px 10px
+        background-color: #DFDFDF
+        p
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+    .btn-hidden-task
+        background-color: #283EFF
+        color: #ffffff
+        text-decoration: none
+        display: inline-block
+        margin-bottom: 10px
+        padding: 10px 15px
+        border-radius: 5px
+        position: relative
+        left: 35%
+        transition: .5s ease
+        &:hover
+            transform: scale(1.1)
+
+
+
 @media (max-width: 950px)
     .login-wrapper
         width: 50%

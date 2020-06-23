@@ -11,6 +11,7 @@ body {
   margin: 0;
   height: 100%;
   min-height: 732px;
+  overflow: hidden;
 }
 
 section {
@@ -176,7 +177,6 @@ section {
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-height: 760px;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -415,8 +415,6 @@ section {
 }
 
 .content-task {
-  padding-top: 50px;
-  padding-bottom: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -424,6 +422,7 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  height: 100%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
@@ -586,6 +585,190 @@ section {
   right: 10px;
   top: -5px;
   font-size: 22px;
+}
+
+.task-content-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0 25px;
+  padding: 15px 25px;
+  position: relative;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.task-content-wrapper .task-item-wrapper {
+  width: 250px;
+  margin: 15px 35px;
+  background-color: #F2F8F6;
+  padding: 15px 20px;
+  font-family: 'Roboto';
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.task-content-wrapper .task-item-wrapper:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.task-content-wrapper .task-item-wrapper .name-give {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.task-content-wrapper .task-item-wrapper .task-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.task-content-wrapper .task-item-wrapper .name-substr {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #20AFFF;
+  padding: 10px 17px;
+  border-radius: 50%;
+  font-size: 24px;
+}
+
+.task-content-wrapper .task-item-wrapper .tag-task {
+  display: inline-block;
+  background-color: #FFBCBC;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ffffff;
+  padding: 5px 15px;
+  position: relative;
+  left: 25px;
+}
+
+.task-content-wrapper .task-item-wrapper .status-task {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: -5px;
+  font-size: 22px;
+}
+
+.hidden-card-task {
+  position: relative;
+  overflow: hidden;
+}
+
+.hidden-card-task .text-container {
+  padding: 20px 25px;
+}
+
+.hidden-card-task .text-container .str-name-hidden {
+  display: inline-block;
+  background-color: #20AFFF;
+  color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 50%;
+}
+
+.hidden-card-task .text-container .name-hidden-task {
+  display: inline-block;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 0 15px;
+}
+
+.hidden-card-task .text-container .status-hidden-task {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 35px;
+}
+
+.hidden-card-task .text-container .status-hidden-task i {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.hidden-card-task .text-container .data-hidden-task-wrapper {
+  font-size: 18px;
+}
+
+.hidden-card-task .text-container .data-hidden-task-wrapper span {
+  display: inline-block;
+  margin-left: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #B9B9B9;
+}
+
+.hidden-card-task .text-container .tegs-task-hidden-wrapper {
+  font-size: 18px;
+}
+
+.hidden-card-task .text-container .tegs-task-hidden-wrapper span {
+  display: inline-block;
+  margin-left: 5px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #B9B9B9;
+}
+
+.hidden-card-task .text-hidden-wrapper {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: #DFDFDF;
+}
+
+.hidden-card-task .text-hidden-wrapper p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.hidden-card-task .btn-hidden-task {
+  background-color: #283EFF;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: relative;
+  left: 35%;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.hidden-card-task .btn-hidden-task:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media (max-width: 950px) {

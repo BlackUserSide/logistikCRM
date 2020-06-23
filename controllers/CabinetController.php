@@ -18,6 +18,7 @@ class CabinetController extends Controller
         if (!isset($_SESSION['user'])) {
             header('Location: /');
         }
+        $this->pageData['titleMain'] = 'Главная';
         $this->pageData['countTask'] = count($this->model->getTask());
         $this->pageData['closeTask'] = array_slice($this->model->getCloseTask(), 0, 3);
         $this->pageData['activeTask'] = array_slice($this->model->getActiveTask(), 0, 3);
