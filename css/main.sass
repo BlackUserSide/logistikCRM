@@ -1,86 +1,404 @@
-@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+html    
+    height: 100%
+    min-height: 732px
+
+
 body
     position: relative
-    font-family: 'PT Serif', serif
+    font-family: 'Roboto'
     font-size: 16px
-.login-wrapper
-    position: relative
-    text-align: center
-    .form-login
-        padding-top: 15px
-        padding-bottom: 25px
-        position: relative
-        right: 0%
-        top: 150px
-        display: inline-block
-        background-image: linear-gradient(to right bottom, #b859cf, #9843ae, #792d8e, #5b186f, #3f0152);
-        width: 550px
-        color: #ffffff
-        border-radius: 15px
-        .logo-form-login
-            p
-                font-family: 'Metal Mania', cursive;
-            .h3
-                font-size: 36px
-                text-transform: uppercase
-        .input-wrapper
-            position: relative
-            display: inline-block
-            margin-bottom: 25px
-            input
-                position: relative
-                z-index: 2
-                background: transparent
-                border: none
-                border-bottom: 2px solid #fff
-                outline: none
-                color: #ffffff
-                
-                &:focus
-                    + .placeholder-input
-                        animation-name: labels
-                        animation-duration: 0.5s
-                        animation-fill-mode: forwards
-            .placeholder-input
-                position: absolute
-                z-index: 1
-                left: 0
-                transition: .5s ease
-                font-size: 16px
-                
-        .btn-login
-            background-color: transparent
-            border: none
-            border: 2px solid #ffffff
-            color: #ffffff
-            border-radius: 10px
-            padding: 5px 15px
-            font-weight: 700
-            transition: .5s ease
-            outline: none
-            &:hover
-                transform: scale(1.1)
-
-
+    margin: 0
+    height: 100%
+    min-height: 732px
+    
 section
     position: relative
     overflow-x: hidden
     padding-top: 50px
     padding-bottom: 50px
-   
 
+    
+.main-login
+    position: relative
+    overflow: hidden
+    width: 100%
+    max-height: 760px
+    height: 100%
+    display: flex
+    .image-wrapper
+        width: 40%
+        img
+            width: 100%
+            height: 100%
+.login-wrapper
+    width: 60%
+    display: flex
+    justify-content: center
+    align-self: center
+    
+    .login-form
+        display: flex
+        flex-direction: column
+        
+        width: 550px
+        .h1
+           
+            font-weight: 500
+            font-size: 32px
+            line-height: 37px
+            margin-bottom: 45px
+        p
+            
+            display: inline-block
+            font-weight: 500
+            font-family: 'Roboto'
+            color: #d62c20
+            
+        label
+            display: inline-block
+            font-family: 'Roboto'
+            font-style: normal
+            font-weight: normal
+            font-size: 14px
+            line-height: 16px
+            color: #B9B9B9
+        input
+            display: inline-block
+            font-family: 'Roboto'
+            font-style: normal
+            font-weight: normal
+            font-size: 18px
+            display: inline-block
+            
+            height: 40px
+            width: 370px
+            background-color: #ECF1F8
+            border: none
+            margin-bottom: 25px
+            padding: 0 10px
+        .btn-login
+            cursor: pointer
+            display: inline-block
+            width: 150px
+            font-size: 18px
+            font-family: 'Roboto'
+            font-style: normal
+            font-weight: bold
+            color: #ffffff
+            background-color: #fff
+            background-color: #283EFF
+            padding: 10px 25px
+            border: none
+            transition: .5s ease
+            &:hover
+                background-color: rgba(#283EFF, .8)
+        .login-loader
+            display: none
+            margin-left: 15px
+            opacity: 0
+           
+        .loader-active
+            display: inline-block
+            opacity: 1
+            animation: loader .5s ease 0s infinite normal none;
 
+    .logo-created   
+        display: inline-block
+        position: absolute
+        bottom: 25px
+        p
+            display: inline-block
 
+@keyframes loader
 
-@keyframes fadeIn
-    0%
-        opacity: 0
+    0.0%
+    
     100%
-        opacity: 1
-@keyframes labels
-    from
-        bottom: 0px
+        transform: rotate(360deg);
+    
+    50.1%
+        transform: rotate(180deg);
  
-    to
-        font-size: 14px 
-        bottom: 22px
+
+
+
+.cabinet-main
+    position: relative
+    overflow: hidden
+    width: 100%
+    max-height: 760px
+    height: 100%
+    display: flex
+    .navbar-wrapper
+        position: relative
+        height: 100%
+        width: 20%
+        background-color: #0045BC
+        .top-line-navbar
+            padding-top: 25px
+            padding-bottom: 25px
+            display: flex
+            justify-content: center
+        .navbar-nav
+            
+            display: flex
+            flex-direction: column
+            padding-top: 40px
+            padding-bottom: 20px
+            justify-content: center
+            align-items: center
+            ul
+                margin: 0
+                padding: 0
+                list-style-type: none
+                li
+                    font-family: Roboto
+                    font-style: normal
+                    font-weight: normal
+                    font-size: 16px
+                    line-height: 19px
+                    margin-bottom: 40px
+                    
+                    padding: 10px 25px
+                    transition: .5s ease
+                    &:hover
+                        background-color: rgba(#fff, .4)
+                    a
+                        text-decoration: none
+                        color: #ffffff
+                        
+                        i
+                            display: inline-block
+                            position: relative
+                            right: 10px
+                            font-size: 22px
+                .active-link-nav
+                    background-color: rgba(#fff, .2)
+    .content-wrapper
+        width: 80%    
+.header-content
+    display: flex
+    flex-direction: row
+    margin: 0  25px
+    padding: 35px 0
+    .h1
+        font-family: 'Roboto'
+        font-style: normal
+        font-weight: 500
+        font-size: 32px
+        line-height: 37px
+        margin: 0
+    .open-task-wrapper
+        margin: 0  10px
+        width: 450px
+        display: flex
+        justify-content: flex-end
+        align-self: center
+        p
+            margin: 0
+            
+            font-family: Roboto
+            font-style: normal
+            font-weight: normal
+            font-size: 14px
+            line-height: 16px
+            color: #FF5454
+            background-color: #FFE0E0
+            border-radius: 5px
+            padding: 10px 15px
+            transition: .5s ease
+            a
+                transition: .5s ease
+                display: inline-block
+                text-decoration: none
+                color:#FF5454
+                &:hover
+                    transform: scale(1.1)
+    .search-wrapper
+        display: flex
+        margin: 0  25px
+        width: 300px
+        position: relative
+        
+        input
+            width: 100%
+            padding: 0  10px
+            height: 40px
+            background: #F2F8F6;
+            border-radius: 5px
+            border: none
+            outline: none
+            font-size: 18px
+            transition: .5s ease
+            &:focus
+                transform: scale(1.1)
+                + a
+                    right: 0px
+
+        a
+            position: absolute
+            right: 15px
+            top: 12px
+            text-decoration: none
+            color: #000000
+            transition: .1s ease
+            &:hover
+                color: #0045BC
+    .notifiction-profile
+        display: flex
+        margin: 0  25px
+        width: 150px
+        position: relative
+        
+        flex-direction: row
+        justify-content: space-around
+        a
+            display: inline-block
+            font-size: 22px
+            line-height: 16px
+        .notification-link
+            color: #000000
+            text-decoration: none
+            padding: 10px 10px
+            &:hover
+                transform: scale(1.2)
+        .profile-link
+            background-color: #20AFFF
+            color: #ffffff
+            text-decoration: none
+            border-radius: 50%
+            padding: 15px 15px
+            
+            text-align: center
+            &:hover
+                transform: scale(1.2)
+.content-task
+    padding-top: 50px
+    padding-bottom: 50px
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    .close-task
+        display: flex
+        flex-direction: column
+        width: 405px
+        background-color: #F9F9F9
+        box-shadow: 0px 16px 25px rgba(0, 0, 0, 0.05)
+        padding: 10px  15px
+        .task-item-wrapper
+            background-color: #fff
+            padding: 15px 20px
+            font-family: 'Roboto';
+            transition: .5s ease
+            cursor: pointer
+            position: relative
+            margin-bottom: 15px
+            &:hover
+                transform: scale(1.1)
+            .name-give
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 21px;
+            .task-text
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 14px;
+            .name-substr
+                display: inline-block
+                text-decoration: none
+                color: #ffffff
+                background-color: #20AFFF
+                padding: 10px 17px
+                border-radius: 50%
+                font-size: 24px
+            .tag-task
+                display: inline-block
+                background-color: #FFBCBC
+                border-radius: 5px
+                font-family: Roboto
+                font-style: normal
+                font-weight: normal
+                font-size: 10px
+                line-height: 12px
+                color: #ffffff
+                padding: 5px 15px
+                position: relative
+                left: 25px
+            .status-task
+                display: inline-block
+                position: absolute
+                color: #24FF00
+                right: 10px
+                top: -5px
+                font-size: 22px
+    .active-task
+        display: flex
+        flex-direction: column
+        width: 405px
+        background-color: #F9F9F9
+        box-shadow: 0px 16px 25px rgba(0, 0, 0, 0.05)
+        padding: 10px  15px
+        .task-item-wrapper
+            background-color: #fff
+            padding: 15px 20px
+            font-family: 'Roboto';
+            transition: .5s ease
+            cursor: pointer
+            position: relative
+            margin-bottom: 15px
+            &:hover
+                transform: scale(1.1)
+            .name-give
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 21px;
+            .task-text
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 14px;
+            .name-substr
+                display: inline-block
+                text-decoration: none
+                color: #ffffff
+                background-color: #20AFFF
+                padding: 10px 17px
+                border-radius: 50%
+                font-size: 24px
+            .tag-task
+                display: inline-block
+                background-color: #FFBCBC
+                border-radius: 5px
+                font-family: Roboto
+                font-style: normal
+                font-weight: normal
+                font-size: 10px
+                line-height: 12px
+                color: #ffffff
+                padding: 5px 15px
+                position: relative
+                left: 25px
+            .status-task
+                display: inline-block
+                position: absolute
+                color: #24FF00
+                right: 10px
+                top: -5px
+                font-size: 22px
+@media (max-width: 950px)
+    .login-wrapper
+        width: 50%
+        .login-form
+            width: 350px
+    .main-login 
+        .image-wrapper  
+            width: 47%
+
+
+

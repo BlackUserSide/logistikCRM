@@ -33,8 +33,5 @@ class IndexController extends Controller
             echo json_encode(array('status' => 'empty'));
         }
     }
-    public function logOut()
-    {
-        session_destroy();
-    }
+    
 }
