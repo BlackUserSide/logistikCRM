@@ -19,10 +19,9 @@
                 <ul>
                     <li class="home-link"><a href="/cabinet" ><i class="fas fa-home"></i>Главная</a></li>
                     <li class="task-link"><a href="/cabinet/task" ><i class="fas fa-clipboard"></i>Задачи</a></li>
-                    <li class="chat-link"><a href="/cabinet/chat" ><i class="fas fa-envelope"></i>Чат</a></li>
                     <li class="clients-link"><a href="/cabinet/clients" ><i class="fas fa-user-friends"></i>Клиенты</a></li>
                     <li class="add-link"><a href="/cabinet/add" ><i class="fas fa-plus-square"></i>Добавить</a></li>
-                    <li class="setings-link"><a href="/cabinet/settings" ><i class="fas fa-cog"></i>Настройки</a></li>
+                    <li class="setings-link"><a href="#" ><i class="fas fa-cog"></i>Настройки</a></li>
                     <li><a href="#" class="log-out-user"><i class="fas fa-sign-out-alt"></i>Выйти</a></li>
                 </ul>
             </nav>
@@ -70,9 +69,16 @@
                 </div>
             </div>
         </div>
-
+        <div style="display: none;">
+            <div class="hidden-settings box-modal">
+                <div class="top-line">
+                    <h1 class="h1">Настройки</h1>
+                    
+                </div>
+            </div>
+        </div>
     </main>
-
+    
 
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/libs/articmodal/jquery.arcticmodal-0.3.min.js"></script>

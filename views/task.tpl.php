@@ -21,7 +21,6 @@
                 <ul>
                     <li class="nav-link home-link"><a href="/cabinet"><i class="fas fa-home"></i>Главная</a></li>
                     <li class="nav-link task-link"><a href="/cabinet/task"><i class="fas fa-clipboard"></i>Задачи</a></li>
-                    <li class="nav-link chat-link"><a href="/cabinet/chat"><i class="fas fa-envelope"></i>Чат</a></li>
                     <li class="nav-link clients-link"><a href="/cabinet/clients"><i class="fas fa-user-friends"></i>Клиенты</a></li>
                     <li class="nav-link add-link"><a href="/cabinet/add"><i class="fas fa-plus-square"></i>Добавить</a></li>
                     <li class="nav-link setings-link"><a href="/cabinet/settings"><i class="fas fa-cog"></i>Настройки</a></li>
