@@ -24,16 +24,20 @@ $(document).ready(function () {
             dataType: "json",
             success: function (date) {
                 if (date.res === 'success') {
+                    console.log(date)
                     getName(date.idGive);
                     if (date.status === '0') {
                         $('.status-hidden-task').html('<i style="color: #FFD600" class="far fa-clock"></i>Ожидающее');
                     } else {
                         $('.status-hidden-task').html('<i style="color: #24FF00" class="far fa-check-circle"></i>Выполнено');
+                        $('.btn-hidden-task').css('display', 'none');
+                        $('.dell-hidden-task').css('display', 'inline-block')
                     }
                     $('.data-hidden-task').text(date.date);
                     $('.tegs-task-hidden').text(date.tagTask)
                     $('.text-task-hidden').html(`Задание: <br> ${date.textTask}`)
                     $('.btn-hidden-task').attr('id', date.id);
+                    $('.dell-hidden-task').attr('id', date.id);
                 }
             }
         });
@@ -56,6 +60,22 @@ $(document).ready(function () {
             }
         });
     })
+    $('.dell-hidden-task').click(function (e) {
+        e.preventDefault();
+        let th = $(this);
+        let id = th.attr('id')
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/task/dellTask",
+            data: { id: id },
+            dataType: "json",
+            success: function (result) {
+                if (result.status === 'success') {
+                    location.reload();
+                }
+            }
+        });
+    })
     function getName(id) {
         $.ajax({
             type: "POST",
@@ -66,11 +86,9 @@ $(document).ready(function () {
                 $('.name-hidden-task').text(`${res.name} ${res.lastName}`);
                 let substr = res.name.substring(0, 1)
                 $('.str-name-hidden').text(substr)
+                
             }
         });
     }
-    $('.setings-link').click(function (e) {
-        e.preventDefault();
-        
-    })
+    
 })

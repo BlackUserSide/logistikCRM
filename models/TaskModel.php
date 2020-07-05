@@ -47,4 +47,11 @@ class TaskModel extends Model
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
     }
+    public function deleteTask($id)
+    {
+        $sql = "DELETE FROM task WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }

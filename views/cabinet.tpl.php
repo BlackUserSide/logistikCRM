@@ -21,7 +21,7 @@
                     <li class="task-link"><a href="/cabinet/task" ><i class="fas fa-clipboard"></i>Задачи</a></li>
                     <li class="clients-link"><a href="/cabinet/clients" ><i class="fas fa-user-friends"></i>Клиенты</a></li>
                     <li class="add-link"><a href="/cabinet/add" ><i class="fas fa-plus-square"></i>Добавить</a></li>
-                    <li class="setings-link"><a href="#" ><i class="fas fa-cog"></i>Настройки</a></li>
+                    <li class="setings-link"><a href="/cabinet/declare" ><i class="fas fa-cog"></i>Заявки</a></li>
                     <li><a href="#" class="log-out-user"><i class="fas fa-sign-out-alt"></i>Выйти</a></li>
                 </ul>
             </nav>
@@ -44,39 +44,40 @@
             <div class="content-task">
                 <div class="close-task">
                     <h1 class="h1">Выполненые</h1>
-                    <?php foreach ($pageData['closeTask'] as $key => $val) { ?>
-                        <div class="task-item-wrapper">
-                            <p class="name-give" id="<?php echo $val['id_Give'] ?>"></p>
-                            <p class="task-text"><?php echo substr($val['textTask'], 0, 40) ?>...</p>
-                            <a href="#" class="name-substr"></a>
-                            <p class="tag-task"><?php echo $val['tagTask'] ?></p>
-                            <p class="status-task"><i class="far fa-check-circle"></i></p>
-                        </div>
-                    <?php } ?>
+                    <?php if (!empty($pageData['closeTask'])) : ?>
+                        <?php foreach ($pageData['closeTask'] as $key => $val) { ?>
+                            <div class="task-item-wrapper">
+                                <p class="name-give" id="<?php echo $val['id_Give'] ?>"></p>
+                                <p class="task-text"><?php echo substr($val['textTask'], 0, 40) ?>...</p>
+                                <a href="#" class="name-substr"></a>
+                                <p class="tag-task"><?php echo $val['tagTask'] ?></p>
+                                <p class="status-task"><i class="far fa-check-circle"></i></p>
+                            </div>
+                        <?php } ?>
+                    <?php else : ?>
+                        <p>На данный момент задачи отсутствуют</p>
+                    <?php endif ?>
 
                 </div>
                 <div class="active-task">
                     <h1 class="h1">Активные</h1>
-                    <?php foreach ($pageData['activeTask'] as $key => $val) { ?>
-                        <div class="task-item-wrapper">
-                            <p class="name-give" id="<?php echo $val['id_Give'] ?>"></p>
-                            <p class="task-text"><?php echo substr($val['textTask'], 0, 40) ?>...</p>
-                            <a href="#" class="name-substr"></a>
-                            <p class="tag-task"><?php echo $val['tagTask'] ?></p>
-                            <p class="status-task"><i class="far fa-check-circle"></i></p>
-                        </div>
-                    <?php } ?>
+                    <?php if (!empty($pageData['activeTask'])) : ?>
+                        <?php foreach ($pageData['activeTask'] as $key => $val) { ?>
+                            <div class="task-item-wrapper">
+                                <p class="name-give" id="<?php echo $val['id_Give'] ?>"></p>
+                                <p class="task-text"><?php echo substr($val['textTask'], 0, 40) ?>...</p>
+                                <a href="#" class="name-substr"></a>
+                                <p class="tag-task"><?php echo $val['tagTask'] ?></p>
+                                <p class="status-task"><i class="far fa-check-circle"></i></p>
+                            </div>
+                        <?php } ?>
+                    <?php else : ?>
+                        <p>На данный момент активные задачи отсутствуют</p>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
-        <div style="display: none;">
-            <div class="hidden-settings box-modal">
-                <div class="top-line">
-                    <h1 class="h1">Настройки</h1>
-                    
-                </div>
-            </div>
-        </div>
+        
     </main>
     
 

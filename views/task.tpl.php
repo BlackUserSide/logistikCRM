@@ -23,7 +23,7 @@
                     <li class="nav-link task-link"><a href="/cabinet/task"><i class="fas fa-clipboard"></i>Задачи</a></li>
                     <li class="nav-link clients-link"><a href="/cabinet/clients"><i class="fas fa-user-friends"></i>Клиенты</a></li>
                     <li class="nav-link add-link"><a href="/cabinet/add"><i class="fas fa-plus-square"></i>Добавить</a></li>
-                    <li class="nav-link setings-link"><a href="/cabinet/settings"><i class="fas fa-cog"></i>Настройки</a></li>
+                    <li class="nav-link setings-link"><a href="/cabinet/declare" ><i class="fas fa-cog"></i>Заявки</a></li>
                     <li><a href="#" class="log-out-user"><i class="fas fa-sign-out-alt"></i>Выйти</a></li>
                 </ul>
             </nav>
@@ -43,24 +43,28 @@
                     <a href="/profile" class="profile-link"><?php echo substr($_SESSION['user']['name'], 0, 1) ?></a>
                 </div>
             </div>
-            
-            <div class="task-content-wrapper">
-                <?php foreach ($pageData['getTaskUser'] as $key => $val) { ?>
-                    <div class="task-item-wrapper" id="<?php echo $val['id'] ?>">
-                        <p class="name-give" id="<?php echo $val['id_Give'] ?>"></p>
-                        <p class="task-text"><?php echo substr($val['textTask'], 0, 40) ?>...</p>
-                        <a href="#" class="name-substr"></a>
-                        <p class="tag-task"><?php echo $val['tagTask'] ?></p>
-                        <p class="status-task">
-                            <?php if ($val['status'] == '1') : ?>
-                                <i style="color: #24FF00" class="far fa-check-circle"></i>
-                            <?php elseif ($val['status'] == '0') : ?>
-                                <i style="color: #FFD600" class="far fa-clock"></i>
-                            <?php endif ?>
 
-                        </p>
-                    </div>
-                <?php } ?>
+            <div class="task-content-wrapper">
+                <?php if (!empty($pageData['getTaskUser'])) :?>
+                    <?php foreach ($pageData['getTaskUser'] as $key => $val) { ?>
+                        <div class="task-item-wrapper" id="<?php echo $val['id'] ?>">
+                            <p class="name-give" id="<?php echo $val['id_Give'] ?>"></p>
+                            <p class="task-text"><?php echo substr($val['textTask'], 0, 40) ?>...</p>
+                            <a href="#" class="name-substr" id="<?php $val['id_Give'] ?>"></a>
+                            <p class="tag-task"><?php echo $val['tagTask'] ?></p>
+                            <p class="status-task">
+                                <?php if ($val['status'] == '1') : ?>
+                                    <i style="color: #24FF00" class="far fa-check-circle"></i>
+                                <?php elseif ($val['status'] == '0') : ?>
+                                    <i style="color: #FFD600" class="far fa-clock"></i>
+                                <?php endif ?>
+
+                            </p>
+                        </div>
+                    <?php } ?>
+                <?php else : ?>
+                    <p>Задачи в данный момент отсутствуют</p>
+                <?php endif ?>
             </div>
         </div>
         <div style="display: none">
@@ -76,9 +80,11 @@
                     <p class="text-task-hidden"></p>
                 </div>
                 <a href="#" class="btn-hidden-task" id="">Выполнено</a>
+                <a href="#" class="dell-hidden-task" style="display: none;" id="">Удалить</a>
                 <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
             </div>
         </div>
+                                
     </main>
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/libs/articmodal/jquery.arcticmodal-0.3.min.js"></script>

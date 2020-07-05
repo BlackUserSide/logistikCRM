@@ -57,4 +57,14 @@ class TaskController extends Controller
             echo json_encode(array('status' => 'wrong'));
         }
     }
+    public function dellTask()
+    {
+        if (!empty($_POST)) {
+            $id = $_POST['id'];
+            $this->model->deleteTask($id);
+            echo json_encode(array('status' => 'success'));
+        } else {
+            echo json_encode(array('status' => 'wrong'));
+        }
+    }
 }

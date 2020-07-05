@@ -11,7 +11,6 @@ body {
   margin: 0;
   height: 100%;
   min-height: 732px;
-  overflow: hidden;
 }
 
 section {
@@ -440,6 +439,7 @@ section {
   -webkit-box-shadow: 0px 16px 25px rgba(0, 0, 0, 0.05);
           box-shadow: 0px 16px 25px rgba(0, 0, 0, 0.05);
   padding: 10px  15px;
+  margin: 0 15px;
 }
 
 .content-task .close-task .task-item-wrapper {
@@ -520,6 +520,7 @@ section {
   -webkit-box-shadow: 0px 16px 25px rgba(0, 0, 0, 0.05);
           box-shadow: 0px 16px 25px rgba(0, 0, 0, 0.05);
   padding: 10px  15px;
+  margin: 0 15px;
 }
 
 .content-task .active-task .task-item-wrapper {
@@ -769,6 +770,79 @@ section {
 .hidden-card-task .btn-hidden-task:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.hidden-card-task .dell-hidden-task {
+  background-color: #283EFF;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: relative;
+  left: 35%;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.hidden-card-task .dell-hidden-task:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.hidden-settings {
+  padding: 15px 25px;
+}
+
+.hidden-settings .inp-hidden-none {
+  display: none;
+}
+
+.hidden-settings .close-input-hidden {
+  display: none;
+}
+
+.hidden-settings .red-pen {
+  display: none;
+}
+
+.hidden-settings .fake-input-hidden {
+  display: none;
+}
+
+.hidden-settings .red-active {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.hidden-settings .red-active:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.hidden-settings .fake-active {
+  display: inline-block;
+  font-size: 18px;
+}
+
+.hidden-settings .inp-active {
+  display: inline-block;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  font-size: 22px;
+  padding: 5px 10px;
+}
+
+.hidden-settings .close-active {
+  display: inline-block;
+  font-size: 22px;
+  cursor: pointer;
 }
 
 @media (max-width: 950px) {

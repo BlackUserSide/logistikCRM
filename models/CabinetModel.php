@@ -50,5 +50,16 @@ class CabinetModel extends Model
             $result[$row['id']] = $row;
         }
         return $result;
+    }
+    public function getDataUser($id)
+    {
+        $sql = "SELECT * FROM users WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[$row['id']] = $row;
+        }
+        return $result;
     }  
 }

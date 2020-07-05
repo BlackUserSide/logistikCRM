@@ -11,7 +11,7 @@ body
     margin: 0
     height: 100%
     min-height: 732px
-    overflow: hidden
+    
     
 section
     position: relative
@@ -290,6 +290,7 @@ section
         background-color: #F9F9F9
         box-shadow: 0px 16px 25px rgba(0, 0, 0, 0.05)
         padding: 10px  15px
+        margin: 0 15px
         .task-item-wrapper
             background-color: #fff
             padding: 15px 20px
@@ -346,6 +347,7 @@ section
         background-color: #F9F9F9
         box-shadow: 0px 16px 25px rgba(0, 0, 0, 0.05)
         padding: 10px  15px
+        margin: 0 15px
         .task-item-wrapper
             background-color: #fff
             padding: 15px 20px
@@ -528,7 +530,53 @@ section
         transition: .5s ease
         &:hover
             transform: scale(1.1)
+    .dell-hidden-task
+        background-color: #283EFF
+        color: #ffffff
+        text-decoration: none
+        display: inline-block
+        margin-bottom: 10px
+        padding: 10px 15px
+        border-radius: 5px
+        position: relative
+        left: 35%
+        transition: .5s ease
+        &:hover
+            transform: scale(1.1)
+.hidden-settings
+    padding: 15px 25px
+    .inp-hidden-none
+        display: none
+    .close-input-hidden
+        display: none
+    .red-pen
+        display: none
+    .fake-input-hidden
+        display: none
+    .red-active
+        display: inline-block
+        cursor: pointer
+        transition: .5s ease
+        font-size: 18px
+        margin-left: 5px
+        &:hover
+            transform: scale(1.1)
+    .fake-active
+        display: inline-block
+        font-size: 18px
+    .inp-active
+        display: inline-block
+        border: none;
+        border-bottom: 2px solid #000
+        outline: none
+        font-size: 22px
+        padding: 5px 10px
+    .close-active
+        display: inline-block
+        font-size: 22px
+        cursor: pointer
 
+       
 
 @media (max-width: 950px)
     .login-wrapper
