@@ -90,5 +90,64 @@ $(document).ready(function () {
             }
         });
     }
+    $('.notification-link').click(function (e) {
+        e.preventDefault();
+        $('.hidden-notification').arcticmodal({
+            content: $(this)
+        })
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/getNotificationUser",    
+            dataType: "json",
+            success: function (data) {
+                if (data.data === 'empty') {
+                    alert('empty');
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/cabinet/changeStatusNot",
+                        dataType: "json",
+                        success: function (result) {
+                            
+                        }
+                    });
+                }
+            }
+        });
+    })
+
+    function getCountNotification() {
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/countUserNotification",
+            dataType: "json",
+            success: function (result) {
+                if (result > 0) {
+                    testAudio ()
+                }
+                $('.count-notif').text(result);
+                $('.count-notif').attr('id', result);
+            }
+        });
+    }
+    
+    getCountNotification()
+    setInterval(function() {
+        getCountNotification();
+    }, 5000);
+    function testAudio () {
+        let mysong = new Audio;
+        mysong.src = '/libs/audio/Sound_11342.wav';
+        mysong.play();
+    }
+    // function takeCountNotification() {
+    //     let count = $('.count-notif').attr('id');
+    //     if (count > '0') {
+    //         testAudio ()
+    //     }
+    // }
+    // setTimeout(() => {
+    //     takeCountNotification();
+    // }, 1500);
     
 })

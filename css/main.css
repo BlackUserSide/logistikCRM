@@ -174,7 +174,6 @@ section {
 
 .cabinet-main {
   position: relative;
-  overflow: hidden;
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -392,6 +391,7 @@ section {
   color: #000000;
   text-decoration: none;
   padding: 10px 10px;
+  position: relative;
 }
 
 .header-content .notifiction-profile .notification-link:hover {
@@ -843,6 +843,340 @@ section {
   display: inline-block;
   font-size: 22px;
   cursor: pointer;
+}
+
+.table-wrapper-clients {
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.table-wrapper-clients table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-wrapper-clients table thead tr {
+  border: 1px solid #A4A4A4;
+  padding: 5px 0;
+}
+
+.table-wrapper-clients table thead td {
+  padding: 10px 15px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #A4A4A4;
+  text-align: center;
+}
+
+.table-wrapper-clients table tbody tr {
+  border: 1px solid #A4A4A4;
+}
+
+.table-wrapper-clients table tbody tr td {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.table-wrapper-clients table tbody tr td p {
+  padding: 10px 15px;
+  position: relative;
+}
+
+.table-wrapper-clients table tbody tr td a {
+  padding: 10px 0;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.table-wrapper-clients table tbody tr td .call-link-comp {
+  color: #06BD6E;
+  text-decoration: none;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.table-wrapper-clients table tbody tr td .call-link-comp:hover {
+  text-decoration: none;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+.table-wrapper-clients table tbody tr td .dell-link-comp {
+  color: #FF3030;
+  text-decoration: none;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.table-wrapper-clients table tbody tr td .dell-link-comp:hover {
+  text-decoration: none;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+.header-client {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.header-client .logo-client {
+  width: 60%;
+  margin: 0 25px;
+}
+
+.header-client .links-header-client-wrapper {
+  width: 40%;
+  margin: 0 25px;
+}
+
+.header-client .links-header-client-wrapper a {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #BCBCBC;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  margin-right: 10px;
+}
+
+.header-client .links-header-client-wrapper a:hover {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #283EFF;
+}
+
+.header-client .links-header-client-wrapper .active {
+  color: #ffffff;
+  background-color: #283EFF;
+}
+
+.hidden-add-clients {
+  padding: 15px 25px;
+}
+
+.hidden-add-clients .link-add-hidden-client {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hidden-add-clients .link-add-hidden-client a {
+  display: inline-block;
+  margin-bottom: 15px;
+  width: 200px;
+  height: 35px;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #BCBCBC;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.hidden-add-clients .link-add-hidden-client a:hover {
+  background-color: #283EFF;
+}
+
+.add-form-company {
+  padding: 10px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.add-form-company .error-form-add {
+  display: inline-block;
+  font-size: 18px;
+  color: #FF3030;
+}
+
+.add-form-company .input-label-wrapper-hidden {
+  display: inline-block;
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.add-form-company .input-label-wrapper-hidden input {
+  border: none;
+  border-bottom: 2px solid #283EFF;
+  outline: none;
+  padding: 5px;
+}
+
+.add-form-company button {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #283EFF;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  outline: none;
+}
+
+.add-form-company button:hover {
+  -webkit-transform: rotate(1.1);
+          transform: rotate(1.1);
+}
+
+.add-form-routes {
+  padding: 10px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.add-form-routes .error-form-add {
+  display: inline-block;
+  font-size: 18px;
+  color: #FF3030;
+}
+
+.add-form-routes .input-label-wrapper-hidden {
+  display: inline-block;
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.add-form-routes .input-label-wrapper-hidden input {
+  border: none;
+  border-bottom: 2px solid #283EFF;
+  outline: none;
+  padding: 5px;
+}
+
+.add-form-routes button {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #283EFF;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  outline: none;
+}
+
+.add-form-routes button:hover {
+  -webkit-transform: rotate(1.1);
+          transform: rotate(1.1);
+}
+
+.add-form-carrier {
+  padding: 10px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.add-form-carrier .error-form-add {
+  display: inline-block;
+  font-size: 18px;
+  color: #FF3030;
+}
+
+.add-form-carrier .input-label-wrapper-hidden {
+  display: inline-block;
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.add-form-carrier .input-label-wrapper-hidden input {
+  border: none;
+  border-bottom: 2px solid #283EFF;
+  outline: none;
+  padding: 5px;
+}
+
+.add-form-carrier button {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #283EFF;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  outline: none;
+}
+
+.add-form-carrier button:hover {
+  -webkit-transform: rotate(1.1);
+          transform: rotate(1.1);
+}
+
+.count-notif {
+  position: absolute;
+  font-size: 12px;
+  text-align: center;
+  right: 0;
+  top: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #283EFF;
+  color: #ffffff;
 }
 
 @media (max-width: 950px) {

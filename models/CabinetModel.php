@@ -61,5 +61,34 @@ class CabinetModel extends Model
             $result[$row['id']] = $row;
         }
         return $result;
+    }
+    public function getNotification($id)
+    {
+        $sql = "SELECT * FROM notification WHERE idUser = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[$row['id']] = $row;
+        }
+        return $result;
+    }
+    public function getNotificationRow($id)
+    {
+        $sql = "SELECT * FROM notification WHERE idUser = :id AND asread = 0";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[$row['id']] = $row;
+        }
+        return $result;
+    }
+    public function readUpdate($id)
+    {
+        $sql = "UPDATE notification SET asread = 1 WHERE idUser = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
     }  
 }

@@ -61,4 +61,32 @@ class CabinetController extends Controller
             echo json_encode(array('status' => 'error'));
         }
     }
+    public function getNotificationUser()
+    {
+        $id = $_SESSION['user']['id'];
+        $data = $this->model->getNotification($id);
+        if (!empty($data)) {
+            echo json_encode($data);
+        } else {
+            echo json_encode(array('data' => 'empty'));
+        }
+    }
+    public function countUserNotification()
+    {
+        $id = $_SESSION['user']['id'];
+        
+        if (!empty($this->model->getNotificationRow($id))) {
+            $count = count($this->model->getNotificationRow($id));
+            echo json_encode($count); 
+        } else {
+            $count = 0;
+            echo json_encode($count);
+        }
+       
+    }
+    public function changeStatusNot()
+    {
+        $id = $_SESSION['user']['id'];
+        $this->model->readUpdate($id);
+    }
 }
