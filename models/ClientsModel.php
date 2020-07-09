@@ -78,7 +78,7 @@ class ClientsModel extends Model
     }
     public function addRoutes($route, $price, $kilometers, $idComp, $idCar)
     {
-        $sql = "INSERT INTO routes (route, price, kilometers, idComp, idCarr)
+        $sql = "INSERT INTO routes (rote, price, kilometers, idComp, idCarr)
         VALUES (:route, :price, :kilometers, :idComp, :idCarr)";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue('route', $route, PDO::PARAM_STR);

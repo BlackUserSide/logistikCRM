@@ -100,6 +100,7 @@ $(document).ready(function () {
             data: form.serialize(),
             dataType: "json",
             success: function (result) {
+                console.log(result);
                 form.trigger('reset');
                 $('.box-modal_close').trigger('click');
                 $(location).attr('href', '/cabinet/clients?cli=routes');

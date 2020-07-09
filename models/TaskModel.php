@@ -54,4 +54,27 @@ class TaskModel extends Model
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
     }
+   
+    public function addTask($textTask, $tageTask, $id, $date)
+    {
+        $sql = "INSERT INTO task (textTask, date, id_Responsible, id_Give, tagTask, status) 
+        VALUES (:textTask, :date, :idR, :idG, :tageTask, 0)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('textTask', $textTask, PDO::PARAM_STR);
+        $stmt->bindValue('date', $date, PDO::PARAM_STR);
+        $stmt->bindValue('tageTask', $tageTask, PDO::PARAM_STR);
+        $stmt->bindValue('idR', $id, PDO::PARAM_STR);
+        $stmt->bindValue('idG', $_SESSION['user']['id'], PDO::PARAM_STR);
+        $stmt->execute();
+    }
+    public function createNotification($id, $text, $date)
+    {
+        $sql = "INSERT INTO notification (textNotification, data, idUser, asread)
+        VALUES (:text, :date, :id, 0)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('text', $text, PDO::PARAM_STR);
+        $stmt->bindValue('date', $date, PDO::PARAM_STR);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }

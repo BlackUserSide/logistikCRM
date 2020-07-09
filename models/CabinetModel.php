@@ -90,5 +90,22 @@ class CabinetModel extends Model
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
+    }
+    public function createNotification($id, $text, $date)
+    {
+        $sql = "INSERT INTO notification (textNotification, data, idUser, asread)
+        VALUES (:text, :date, :id, 0)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('text', $text, PDO::PARAM_STR);
+        $stmt->bindValue('date', $date, PDO::PARAM_STR);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+    public function dellAllNotife($id)
+    {
+        $sql = "DELETE FROM notification WHERE idUser = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
     }  
 }

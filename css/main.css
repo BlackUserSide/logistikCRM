@@ -421,7 +421,6 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 100%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
@@ -592,7 +591,6 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -1177,6 +1175,131 @@ section {
   border-radius: 50%;
   background-color: #283EFF;
   color: #ffffff;
+}
+
+.list-notification {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px 0;
+  position: relative;
+}
+
+.list-notification a {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.list-notification ul {
+  margin: 0;
+  padding: 15px 5px;
+  list-style-type: none;
+  width: 90%;
+  display: inline-block;
+}
+
+.list-notification ul li {
+  padding: 0 15px;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.list-notification ul li .text-notification {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.list-notification ul li .date-notification {
+  position: absolute;
+  right: 5px;
+  top: -10px;
+  font-size: 14px;
+}
+
+.list-notification ul .no-read-list-notif {
+  border: 2px solid #283EFF;
+}
+
+.list-notification ul .read-list-notif {
+  border: 1px solid #000;
+}
+
+.add-form-task {
+  padding: 10px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.add-form-task .error-form-add {
+  display: inline-block;
+  font-size: 18px;
+  color: #FF3030;
+}
+
+.add-form-task .input-label-wrapper-hidden {
+  display: inline-block;
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.add-form-task .input-label-wrapper-hidden input {
+  border: none;
+  border-bottom: 2px solid #283EFF;
+  outline: none;
+  padding: 5px;
+}
+
+.add-form-task button {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #283EFF;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  outline: none;
+}
+
+.add-form-task button:hover {
+  -webkit-transform: rotate(1.1);
+          transform: rotate(1.1);
+}
+
+.add-task-link {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 36px;
+  background-color: #283EFF;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.add-task-link:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media (max-width: 950px) {

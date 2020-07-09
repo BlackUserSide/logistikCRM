@@ -86,34 +86,59 @@ $(document).ready(function () {
                 $('.name-hidden-task').text(`${res.name} ${res.lastName}`);
                 let substr = res.name.substring(0, 1)
                 $('.str-name-hidden').text(substr)
-                
+
             }
         });
     }
     $('.notification-link').click(function (e) {
         e.preventDefault();
         $('.hidden-notification').arcticmodal({
-            content: $(this)
+            content: $(this),
+            beforeClose: function () {
+                location.reload();
+                
+            }
         })
         $.ajax({
             type: "POST",
-            url: "/cabinet/getNotificationUser",    
+            url: "/cabinet/getNotificationUser",
             dataType: "json",
             success: function (data) {
                 if (data.data === 'empty') {
-                    alert('empty');
+                    
                 } else {
+                    $.each(data, function (key, val) {
+                        if (val.asread === '0') {
+                            let html = `<li class="notification-wrapper no-read-list-notif">
+                                    <p class="text-notification">${val.textNotification}</p>
+                                    <p class="date-notification">${val.data}</p>
+                                    <p style="display:none" id="statusRead">${val.asread}</p>
+                                </li>`;
+                            $('.list-notification ul').prepend(html)
+                        } else {
+                            let html = `<li class="notification-wrapper read-list-notif">
+                                    <p class="text-notification">${val.textNotification}</p>
+                                    <p class="date-notification">${val.data}</p>
+                                    <p style="display:none" id="statusRead">${val.asread}</p>
+                                </li>`;
+                            $('.list-notification ul').prepend(html)
+                        }
+                       
+                    });
+
                     $.ajax({
                         type: "POST",
                         url: "/cabinet/changeStatusNot",
                         dataType: "json",
                         success: function (result) {
-                            
+
                         }
                     });
+
                 }
             }
         });
+
     })
 
     function getCountNotification() {
@@ -123,19 +148,19 @@ $(document).ready(function () {
             dataType: "json",
             success: function (result) {
                 if (result > 0) {
-                    testAudio ()
+                    testAudio()
                 }
                 $('.count-notif').text(result);
                 $('.count-notif').attr('id', result);
             }
         });
     }
-    
+
     getCountNotification()
-    setInterval(function() {
+    setInterval(function () {
         getCountNotification();
     }, 5000);
-    function testAudio () {
+    function testAudio() {
         let mysong = new Audio;
         mysong.src = '/libs/audio/Sound_11342.wav';
         mysong.play();
@@ -149,5 +174,15 @@ $(document).ready(function () {
     // setTimeout(() => {
     //     takeCountNotification();
     // }, 1500);
-    
+    $('#clearNotif').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/dellAllNotife",
+            dataType: "json",
+            success: function () {
+                
+            }
+        });
+    })
 })

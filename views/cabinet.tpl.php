@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/fontawosome/css/all.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/libs/articmodal/jquery.arcticmodal-0.3.css">
+    <link rel="stylesheet" href="/libs/articmodal/themes/simple.css">
     <title><?php echo $pageData['title'] ?></title>
 </head>
 
@@ -37,7 +39,7 @@
                     <a href="#" class="start-search"><i class="fas fa-search"></i></a>
                 </div>
                 <div class="notifiction-profile">
-                    <a href="#" class="notification-link"><i class="fas fa-bell"></i><span></span></a>
+                    <a href="#" class="notification-link"><span class="count-notif"></span><i class="fas fa-bell"></i><span></span></a>
                     <a href="/profile" class="profile-link"><?php echo substr($_SESSION['user']['name'], 0, 1) ?></a>
                 </div>
             </div>
@@ -77,7 +79,17 @@
                 </div>
             </div>
         </div>
-        
+        <div style="display: none">
+            <div class="hidden-notification box-modal">
+                <div class="list-notification">
+                    <a href="#" id="clearNotif">Очистить</a>
+                    <ul>
+                        
+                    </ul>
+                </div>
+                <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>                    
+            </div>
+        </div>
     </main>
     
 

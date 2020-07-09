@@ -89,4 +89,18 @@ class CabinetController extends Controller
         $id = $_SESSION['user']['id'];
         $this->model->readUpdate($id);
     }
+    public function dellAllNotife()
+    {
+        $id = $_SESSION['user']['id'];
+        $this->model->dellAllNotife($id);
+    }
+    public function createNotification($id,  $text) {
+        if ($id !== '' && $text !== '') {
+            $date = date("m.d.y");
+            $this->model->createNotification($id, $text, $date);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

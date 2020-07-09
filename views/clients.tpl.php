@@ -311,10 +311,9 @@
         <div style="display: none">
             <div class="hidden-notification box-modal">
                 <div class="list-notification">
+                    <a href="#" id="clearNotif">Очистить</a>
                     <ul>
-                        <li class="notification-wrapper">
-                                
-                        </li>
+                        
                     </ul>
                 </div>
                 <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>                    

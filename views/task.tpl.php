@@ -23,7 +23,7 @@
                     <li class="nav-link task-link"><a href="/cabinet/task"><i class="fas fa-clipboard"></i>Задачи</a></li>
                     <li class="nav-link clients-link"><a href="/cabinet/clients"><i class="fas fa-user-friends"></i>Клиенты</a></li>
                     <li class="nav-link add-link"><a href="/cabinet/add"><i class="fas fa-plus-square"></i>Добавить</a></li>
-                    <li class="nav-link setings-link"><a href="/cabinet/declare" ><i class="fas fa-cog"></i>Заявки</a></li>
+                    <li class="nav-link setings-link"><a href="/cabinet/declare"><i class="fas fa-cog"></i>Заявки</a></li>
                     <li><a href="#" class="log-out-user"><i class="fas fa-sign-out-alt"></i>Выйти</a></li>
                 </ul>
             </nav>
@@ -39,13 +39,14 @@
                     <a href="#" class="start-search"><i class="fas fa-search"></i></a>
                 </div>
                 <div class="notifiction-profile">
-                    <a href="#" class="notification-link"><i class="fas fa-bell"></i><span></span></a>
+                    <a href="#" class="notification-link"><span class="count-notif"></span><i class="fas fa-bell"></i><span></span></a>
                     <a href="/profile" class="profile-link"><?php echo substr($_SESSION['user']['name'], 0, 1) ?></a>
                 </div>
             </div>
 
             <div class="task-content-wrapper">
-                <?php if (!empty($pageData['getTaskUser'])) :?>
+                <div class="add-task-link">+</div>
+                <?php if (!empty($pageData['getTaskUser'])) : ?>
                     <?php foreach ($pageData['getTaskUser'] as $key => $val) { ?>
                         <div class="task-item-wrapper" id="<?php echo $val['id'] ?>">
                             <p class="name-give" id="<?php echo $val['id_Give'] ?>"></p>
@@ -84,7 +85,43 @@
                 <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
             </div>
         </div>
-                                
+        <div style="display: none">
+            <div class="hidden-notification box-modal">
+                <div class="list-notification">
+                    <a href="#" id="clearNotif">Очистить</a>
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
+            </div>
+        </div>
+        <div style="display: none;">
+            <div class="hidden-add-taks box-modal">
+                <form class="add-form-task">
+                    <h3 class="h3">Добавить задачу</h3>
+                    <p class="error-form-add"></p>
+                    <div class="input-label-wrapper-hidden">
+                        <label>Текст задачи</label><br>
+                        <input type="text" name="textTusk" required>
+                    </div>
+                    <div class="input-label-wrapper-hidden">
+                        <label>Тег Задачи</label><br>
+
+                        <input type="text" name="tageTask" required>
+
+                    </div>
+                    <div class="input-label-wrapper-hidden">
+                        <label>Введите номер исполнителя</label><br>
+                        <input type="text" name="idUser" id="nameSearch" required><br>
+
+                    </div>
+                    <button type="submit">Добавить</button>
+                </form>
+                <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
+            </div>
+        </div>
+        
     </main>
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/libs/articmodal/jquery.arcticmodal-0.3.min.js"></script>

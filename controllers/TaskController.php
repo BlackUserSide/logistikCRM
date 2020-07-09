@@ -19,9 +19,12 @@ class TaskController extends Controller
         $this->pageData['titleMain'] = 'Задачи';
         $this->pageData['countTask'] = count($this->model->getTaskActive());
         $this->pageData['getTaskUser'] = $this->model->getTaskUser();
-        usort($this->pageData['getTaskUser'], function ($a, $b) {
-            return ($a['status'] - $b['status']);
-        });
+        if (!empty($this->pageData['getTaskUser'])) {
+            usort($this->pageData['getTaskUser'], function ($a, $b) {
+                return ($a['status'] - $b['status']);
+            });
+        }
+        
         $this->pageData['title'] = 'Задачи для ' . $_SESSION['user']['name'] . ' ' . $_SESSION['user']['lastName'] . ' || TransCRM';
         $this->view->render($this->pageTpl, $this->pageData);
     }
@@ -51,6 +54,13 @@ class TaskController extends Controller
     {
         if (!empty($_POST)) {
             $id = $_POST['id'];
+            $result = $this->model->getTaskInfo($id);
+            foreach($result as $key => $val) {
+                $idG = $val['id_Give'];
+                
+            }
+            $text = ''.$_SESSION['user']['lastName'].''.$_SESSION['user']['name'].' выполнил ваше задание';
+            $this->createNotification($idG, $text);
             $this->model->updateStatusTask($id);
             echo json_encode(array('status' => 'success'));
         } else {
@@ -65,6 +75,31 @@ class TaskController extends Controller
             echo json_encode(array('status' => 'success'));
         } else {
             echo json_encode(array('status' => 'wrong'));
+        }
+    }
+   
+    public function addTask()
+    {
+        if (!empty($_POST)) {
+            $date = date("m.d.y");
+            $textTask = $_POST['textTusk'];
+            $tageTask = $_POST['tageTask'];
+            $id = $_POST['idUser'];
+            $this->model->addTask($textTask, $tageTask, $id, $date);
+            $text = 'Новая задача от '.$_SESSION['user']['lastName'].' '.$_SESSION['user']['name'].'';
+            $this->createNotification($id, $text);
+            echo json_encode(array('status' => 'success'));
+        } else {
+            echo json_encode(array('status' => 'error'));
+        }
+    }
+    public function createNotification($id,  $text) {
+        if ($id !== '' && $text !== '') {
+            $date = date("m.d.y");
+            $this->model->createNotification($id, $text, $date);
+            return true;
+        } else {
+            return false;
         }
     }
 }
