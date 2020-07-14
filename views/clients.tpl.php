@@ -83,7 +83,7 @@
                                         <?php echo $val['id'] ?>
                                     </td>
                                     <td>
-                                        <a href="/cabinet/cardComp?id=<?php echo $val['id'] ?>"><?php echo $val['nameCompany'] ?></a>
+                                        <a href="/cabinet/card?id=<?php echo $val['id'] ?>"><?php echo $val['nameCompany'] ?></a>
                                     </td>
                                     <td>
                                         <p><?php echo $val['country'] ?></p>
@@ -121,7 +121,7 @@
                                 <tr>
                                     <td><?php echo $val['id'] ?></td>
                                     <td>
-                                        <a href="/cabinet/cardComp?id=<?php echo $val['id'] ?>"><?php echo $val['nameDriver'] ?></a>
+                                        <a href="/cabinet/card?id=<?php echo $val['id'] ?>"><?php echo $val['nameDriver'] ?></a>
                                     </td>
                                     <td>
                                         <p><?php echo $val['carModel'] ?></p>
@@ -160,7 +160,7 @@
                             <?php foreach ($pageData['getDataRoutes'] as $key => $val) { ?>
                                 <tr>
                                     <td>
-                                        <a href="/cabinet/cardComp?id=<?php echo $val['id'] ?>"><?php echo $val['id'] ?></a>
+                                        <a href="/cabinet/card?id=<?php echo $val['id'] ?>"><?php echo $val['id'] ?></a>
                                     </td>
                                     <td>
                                         <p><?php echo $val['rote'] ?></p>
