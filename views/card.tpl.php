@@ -43,6 +43,23 @@
                     <a href="/profile" class="profile-link"><?php echo substr($_SESSION['user']['name'], 0, 1) ?></a>
                 </div>
             </div>
+            <div class="content-card">
+                <h3 class="h3">Карточка
+                    <?php if ($_GET['ref'] == 'comp') :?> 
+                        компании
+                    <?php elseif ($_GET['ref'] == 'routes') : ?>
+                        маршрута
+                    <?php else : ?>
+                        перевозчика
+                    <?php endif ?>
+                </h3>
+                <div class="content-card-wrapper">
+
+                </div>
+            </div>
+        </div>
+        
+
 
 
 
