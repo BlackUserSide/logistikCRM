@@ -256,6 +256,7 @@ section {
 }
 
 .cabinet-main .content-wrapper {
+  position: relative;
   width: 80%;
 }
 
@@ -1306,13 +1307,165 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   margin: 0 25px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .content-card .h3 {
+  margin: 0;
+  margin-bottom: 15px;
   font-size: 24px;
   font-weight: normal;
+}
+
+.content-card .content-card-wrapper {
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.content-card .composition-card {
+  position: relative;
+  border-radius: 10px;
+  background: #F7F7F7;
+  width: 45%;
+  padding: 10px 0;
+}
+
+.content-card .composition-card .name-composition {
+  padding: 10px 10px;
+  border-bottom: 1px solid #000000;
+}
+
+.content-card .composition-card .name-composition .h3 {
+  margin: 0;
+}
+
+.content-card .dell-card {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  color: #FF3030;
+  text-decoration: none;
+}
+
+.content-card .dell-card:hover {
+  text-decoration: none;
+}
+
+.content-card .composition-main-card {
+  padding: 10px 15px;
+}
+
+.content-card .composition-main-card .item-composition .opacitiy-p {
+  font-size: 14px;
+  color: #B9B9B9;
+  margin: 0;
+}
+
+.content-card .composition-main-card .item-composition a {
+  color: #000000;
+}
+
+.content-card .comments-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 25px;
+  width: 45%;
+  position: relative;
+}
+
+.content-card .comments-wrapper .commets-composit {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.content-card .comments-wrapper .commets-composit .input-wrapper-comments {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.content-card .comments-wrapper .commets-composit .input-wrapper-comments input {
+  width: 80%;
+  display: inline-block;
+  background-color: #EDEDED;
+  border: none;
+  height: 36px;
+  border-radius: 10px;
+  outline: none;
+  padding: 2px 15px;
+}
+
+.content-card .comments-wrapper .commets-composit .input-wrapper-comments button {
+  z-index: 4;
+  cursor: pointer;
+  position: absolute;
+  right: 80px;
+  top: 7px;
+  background-color: #283EFF;
+  color: #ffffff;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  outline: none;
+}
+
+.content-card .comments-wrapper .commets-composit .input-wrapper-comments button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.content-card .comments-wrapper .comments-list {
+  overflow-y: scroll;
+  height: 500px;
+}
+
+.content-card .comments-wrapper .comments-list .item-comments {
+  background-color: #EDEDED;
+  width: 80%;
+  position: relative;
+  padding: 5px 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.content-card .comments-wrapper .comments-list .item-comments p {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.content-card .comments-wrapper .comments-list .item-comments .dell-comments {
+  position: absolute;
+  right: 5px;
+  top: 2px;
+  text-decoration: none;
+  color: #000000;
+  font-size: 18px;
+}
+
+.content-card .comments-wrapper .comments-list .item-comments .dell-comments:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media (max-width: 950px) {
