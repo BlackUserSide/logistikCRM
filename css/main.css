@@ -1468,6 +1468,30 @@ section {
           transform: scale(1.1);
 }
 
+.hidden-list-routes {
+  padding: 25px 15px;
+}
+
+.hidden-list-routes .item-routes-hidden {
+  padding: 5px 10px;
+  border: 1px solid #283EFF;
+  border-radius: 5px;
+}
+
+.hidden-list-routes .item-routes-hidden a {
+  text-decoration: none;
+  color: #000;
+}
+
+.hidden-list-routes .item-routes-hidden p {
+  font-size: 18px;
+}
+
+.hidden-list-routes .item-routes-hidden p span {
+  font-weight: 700;
+  color: #283EFF;
+}
+
 @media (max-width: 950px) {
   .login-wrapper {
     width: 50%;

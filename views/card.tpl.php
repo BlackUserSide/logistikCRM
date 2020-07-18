@@ -146,9 +146,13 @@
                                         <p class="opacitiy-p">Фотографии</p>
                                         <p class="past-p"><a href=""><?php echo $val['photo'] ?></a></p>
                                     </div>
-                                    
+                                    <div class="item-composition">
+                                        <p class="opacitiy-p">Маршруты</p>
+                                        <p class="past-p"><a href="#" class="link-routes"><?php echo $pageData['countRoutes'] ?></a></p>
+                                    </div>
 
                                 </div>
+
                                 <a href="#" class="dell-card" ref="carr" id-card="<?php echo $val['id'] ?>">Удалить карточку</a>
                             <?php  } ?>
                         <?php endif ?>
@@ -176,8 +180,8 @@
                                         <?php } ?>
                                     <?php else : ?>
                                         <div class="item-comments" id-user="<?php echo $val['idUser'] ?>">
-                                           <p>Комментариев еще нет</p>
-                                           
+                                            <p>Комментариев еще нет</p>
+
                                         </div>
                                     <?php endif ?>
                                 </div>
@@ -204,8 +208,8 @@
                                         <?php } ?>
                                     <?php else : ?>
                                         <div class="item-comments" id-user="<?php echo $val['idUser'] ?>">
-                                           <p>Комментариев еще нет</p>
-                                           
+                                            <p>Комментариев еще нет</p>
+
                                         </div>
                                     <?php endif ?>
                                 </div>
@@ -232,13 +236,13 @@
                                         <?php } ?>
                                     <?php else : ?>
                                         <div class="item-comments" id-user="<?php echo $val['idUser'] ?>">
-                                           <p>Комментариев еще нет</p>
-                                           
+                                            <p>Комментариев еще нет</p>
+
                                         </div>
                                     <?php endif ?>
                                 </div>
                             </div>
-                        <?php endif ?>            
+                        <?php endif ?>
                     </div>
                 </div>
             </div>
@@ -246,7 +250,22 @@
 
 
 
-
+        <div style="display: none;">
+            <div class="hidden-list-routes box-modal">
+                <?php foreach ($pageData['dataRoutesId'] as $key => $val) { ?>
+                    <div class="item-routes-hidden">
+                        <a href="/cabinet/card/?id=<?php echo $val['id'] ?>&ref=routes">
+                            <p class="number-route-h">Номер маршрута: <span><?php echo $val['id'] ?></span> </p>
+                            <p class="route-text-h">Направление: <span><?php echo $val['rote'] ?></span></p>
+                            <p class="price-h">Цена: <span><?php echo $val['price'] ?></span></p>
+                            <p class="kil-m-h">Киллометраж: <span><?php echo $val['kilometers'] ?></span></p>
+                            <p clas="name-company" id="<?php echo $val['idComp'] ?>"></p>
+                        </a>
+                    </div>
+                    <div class="box-modal_close arcticmodal-close" style="font-size:22px">X</div>
+                <?php } ?>
+            </div>
+        </div>
 
     </main>
     <script src="/js/jquery-3.4.1.min.js"></script>

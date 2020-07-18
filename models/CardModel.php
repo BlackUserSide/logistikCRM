@@ -18,14 +18,14 @@ class CardModel extends Model
     public function getDataCard($id, $table)
     {
         if ($table === 'company') {
-           $sql = "SELECT * FROM company WHERE id = :id";
+            $sql = "SELECT * FROM company WHERE id = :id";
         } else if ($table === 'routes') {
             $sql = "SELECT * FROM routes WHERE id = :id";
         } else {
             $sql = "SELECT * FROM carriers WHERE id = :id";
         }
         $stmt = $this->db->prepare($sql);
-        
+
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -63,7 +63,6 @@ class CardModel extends Model
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
-        
     }
     public function getDataComments($id, $table)
     {
@@ -92,7 +91,6 @@ class CardModel extends Model
         $stmt->bindValue('category', $ref, PDO::PARAM_STR);
         $stmt->bindValue('idCat', $id, PDO::PARAM_STR);
         $stmt->execute();
-
     }
     public function getNameUser($id)
     {
@@ -111,5 +109,20 @@ class CardModel extends Model
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
+    }
+    public function getRoutesCard($id, $table)
+    {
+        if ($table === 'company') {
+            $sql = "SELECT * FROM routes WHERE idComp = :id";
+        } else if ($table === 'carriers') {
+            $sql = "SELECT * FROM routes WHERE idCarr = :id";
+        }
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[$row['id']] = $row;
+        }
+        return $result;
     }
 }

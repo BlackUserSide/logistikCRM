@@ -28,6 +28,15 @@ class CardController extends Controller
         if (!empty ($this->model->getDataComments($idCard, $table))) {
             $this->pageData['comments'] = array_reverse($this->model->getDataComments($idCard, $table));
         }
+        
+        
+        
+        if (!empty($this->model->getRoutesCard($idCard, $table))){
+            $this->pageData['countRoutes'] = count($this->model->getRoutesCard($idCard, $table));
+            $this->pageData['dataRoutesId'] = array_reverse($this->model->getRoutesCard($idCard, $table));
+        } else {
+            $this->pageData['countRoutes'] = 0;
+        }
         $this->pageData['dataCard'] = $this->model->getDataCard($idCard, $table);
         $this->pageData['titleMain'] = 'Клиенты';
         $this->pageData['countTask'] = count($this->model->getTask());

@@ -88,4 +88,10 @@ $(document).ready(function () {
             }
         });
     })
+    $('.link-routes').click(function (e) {
+        e.preventDefault();
+        $('.hidden-list-routes').arcticmodal({
+            content: $('.hidden-list-routes')
+        });
+    })
 })
