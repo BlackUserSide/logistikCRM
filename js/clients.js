@@ -45,7 +45,7 @@ $(document).ready(function () {
     $('.table-wrapper').DataTable()
     $('.dataTables_wrapper').css('width', '100%');
     $('.dataTable').css('width', '100%');
-    $('#DataTables_Table_0_filter').css('display', 'none');
+    
     $('.dataTables_length').css('display', 'none');
     $.each($('.id-comp-wrapper'), function (index, val) {
         let th = $(this)

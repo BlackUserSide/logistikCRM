@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/fontawosome/css/all.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/libs/DataTables-1.10.21/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="/libs/articmodal/jquery.arcticmodal-0.3.css">
     <link rel="stylesheet" href="/libs/articmodal/themes/simple.css">
     <title><?php echo $pageData['title'] ?></title>
@@ -43,11 +44,65 @@
                     <a href="/profile" class="profile-link"><?php echo substr($_SESSION['user']['name'], 0, 1) ?></a>
                 </div>
             </div>
+            <div class="content-main-users">
+                <table class="table-users">
+                    <thead>
+                        <tr>
+                            <td>id</td>
+                            <td>Логин</td>
+                            <td>Имя</td>
+                            <td>Фамилия</td>
+                            <td>e-mail</td>
+                            <td>Должность</td>
+                            <?php if ($_SESSION['user']['status'] == '1') : ?>
+                                <td>Действия</td>
+                            <?php endif  ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($pageData['usersList'] as $key => $val) { ?>
+                            <tr>
+                                <td><?php echo $val['id'] ?></td>
+                                <td><?php echo $val['login'] ?></td>
+                                <td><?php echo $val['name'] ?></td>
+                                <td><?php echo $val['lastName'] ?></td>
+                                <td><?php echo $val['email'] ?></td>
+                                <td>
+                                    <?php if ($val['status'] == '2') : ?>
+                                        Сотрудник
+                                    <?php else : ?>
+                                        Администратор
+                                    <?php endif ?>
+                                </td>
+                                <?php if ($_SESSION['user']['status'] == '1') : ?>
+                                    <td>
+                                        <a href="#"  class="action-list-users" id="<?php echo $val['id'] ?>">Управлять</a>
+                                    </td>
+                                <?php endif  ?>
+
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="display: none;">
+            <div class="hidden-action-nick box-modal">
+                <div class="actiun-users">
+                   
+                    <a href="#" class="dell-user-h">Удалить</a>
+                    <a href="#" class="change-status-h">Изменить статус</a>
+                    
+                </div>
+            <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
+            </div>
         </div>
     </main>
     <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/libs/DataTables-1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="/libs/articmodal/jquery.arcticmodal-0.3.min.js"></script>
     <script src="/js/users.js"></script>
     <script src="/js/main.user.js"></script>
 </body>
+
 </html>
