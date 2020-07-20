@@ -23,7 +23,7 @@
                     <li class="home-link"><a href="/cabinet"><i class="fas fa-home"></i>Главная</a></li>
                     <li class="task-link"><a href="/cabinet/task"><i class="fas fa-clipboard"></i>Задачи</a></li>
                     <li class="clients-link"><a href="/cabinet/clients"><i class="fas fa-user-friends"></i>Клиенты</a></li>
-                    <li class="add-link"><a href="/cabinet/add"><i class="fas fa-plus-square"></i>Добавить</a></li>
+                    <li class="add-link"><a href="/cabinet/users"><i class="fas fa-plus-square"></i>Сотрудники</a></li>
                     <li class="setings-link"><a href="/cabinet/declare"><i class="fas fa-cog"></i>Заявки</a></li>
                     <li><a href="#" class="log-out-user"><i class="fas fa-sign-out-alt"></i>Выйти</a></li>
                 </ul>

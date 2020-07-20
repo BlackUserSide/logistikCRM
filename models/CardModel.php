@@ -125,4 +125,45 @@ class CardModel extends Model
         }
         return $result;
     }
+    public function getDocsCard($idCard, $table)
+    {
+        if ($table === 'company') {
+            $sql = "SELECT * FROM docs WHERE idbind = :id AND category = 0";
+        } else if ($table === 'routes') {
+            $sql = "SELECT * FROM docs WHERE idbind = :id AND category = 1";
+        } else {
+            $sql = "SELECT * FROM docs WHERE idbind = :id AND category = 2";
+        }
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $idCard, PDO::PARAM_STR);
+        $stmt->execute();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[$row['id']] = $row;
+        }
+        return $result;
+    }
+    public function addDocs($idCard, $table, $name)
+    {
+        if ($table === 'company') {
+            $sql = "INSERT INTO docs (nameDocs, type, idbind, category)
+            VALUES (:name, 0, :id, 0)";
+        } else if ($table === 'routes') {
+            $sql = "INSERT INTO docs (nameDocs, type, idbind, category)
+            VALUES (:name, 0, :id, 1)";
+        } else {
+            $sql = "INSERT INTO docs (nameDocs, type, idbind, category)
+            VALUES (:name, 0, :id, 2)";
+        }
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('name', $name, PDO::PARAM_STR);
+        $stmt->bindValue('id', $idCard, PDO::PARAM_STR);
+        $stmt->execute();
+    }
+    public function dellDoc($id)
+    {
+        $sql = "DELETE FROM docs WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }

@@ -94,4 +94,34 @@ $(document).ready(function () {
             content: $('.hidden-list-routes')
         });
     })
+    $('.link-docs').click(function (e) {
+        e.preventDefault();
+        $('.hidden-list-docs').arcticmodal({
+            content: $('.hidden-list-docs')
+        })
+
+    })
+    $('.add-docs').click(function (e) {
+        e.preventDefault();
+        $('.hidden-form-add-docs').arcticmodal();
+    })
+    $('.dell-docs').click(function (e) {
+        e.preventDefault();
+        let id = $(this).attr('id');
+        let nameDoc = $(this).attr('name-doc');
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/card/dellDoc",
+            data: {id: id, name:nameDoc},
+            dataType: "json",
+            success: function (result) {
+                
+                if (result.status === 'success') {
+                    location.reload();
+                } else {
+                    alert('Ошибка');
+                }
+            }
+        });
+    })
 })

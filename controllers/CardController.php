@@ -29,8 +29,24 @@ class CardController extends Controller
             $this->pageData['comments'] = array_reverse($this->model->getDataComments($idCard, $table));
         }
         
+        if ($_FILES) {
+            if ($_FILES == '') {
+                $this->pageData['error'] = 'Недопустимый формат файла';
+            } else {
+                if (move_uploaded_file($_FILES['docs']['tmp_name'], UPLOAD_FOLDER.$_FILES['docs']['name'])) {
+                    $name = $_FILES['docs']['name'];
+                    $this->model->addDocs($idCard, $table, $name);
+                    header('Location: /cabinet/card?id='.$idCard.'&ref='.$referal);
+                }
+            }
+        }
         
-        
+        $this->pageData['docs'] = $this->model->getDocsCard($idCard, $table);
+        if (!empty($this->pageData['docs'])) {
+            $this->pageData['countDocs'] = count($this->pageData['docs']);
+        } else {
+            $this->pageData['countDocs'] = 0;
+        }
         if (!empty($this->model->getRoutesCard($idCard, $table))){
             $this->pageData['countRoutes'] = count($this->model->getRoutesCard($idCard, $table));
             $this->pageData['dataRoutesId'] = array_reverse($this->model->getRoutesCard($idCard, $table));
@@ -92,6 +108,16 @@ class CardController extends Controller
     {
         if (!empty($_POST)) {
             $this->model->dellCommets($_POST['id']);
+            echo json_encode(array('status' => 'success'));
+        } else {
+            echo json_encode(array('status' => 'wrong'));
+        }
+    }
+    public function dellDoc()
+    {
+        if (!empty($_POST)) {
+            $this->model->dellDoc($_POST['id']);
+            unlink('./docs/'.$_POST['name']);
             echo json_encode(array('status' => 'success'));
         } else {
             echo json_encode(array('status' => 'wrong'));

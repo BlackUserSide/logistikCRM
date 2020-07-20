@@ -22,7 +22,7 @@
                     <li class="nav-link home-link"><a href="/cabinet"><i class="fas fa-home"></i>Главная</a></li>
                     <li class="nav-link task-link"><a href="/cabinet/task"><i class="fas fa-clipboard"></i>Задачи</a></li>
                     <li class="nav-link clients-link"><a href="/cabinet/clients"><i class="fas fa-user-friends"></i>Клиенты</a></li>
-                    <li class="nav-link add-link"><a href="/cabinet/add"><i class="fas fa-plus-square"></i>Добавить</a></li>
+                    <li class="nav-link add-link"><a href="/cabinet/users"><i class="fas fa-plus-square"></i>Сотрудники</a></li>
                     <li class="nav-link setings-link"><a href="/cabinet/declare"><i class="fas fa-cog"></i>Заявки</a></li>
                     <li><a href="#" class="log-out-user"><i class="fas fa-sign-out-alt"></i>Выйти</a></li>
                 </ul>
@@ -83,9 +83,12 @@
                                     </div>
                                     <div class="item-composition">
                                         <p class="opacitiy-p">Документы</p>
-                                        <p class="past-p"><a href="#">0</a></p>
+                                        <p class="past-p"><a href="#" class="link-docs"><?php echo $pageData['countDocs'] ?></a></p>
                                     </div>
-
+                                    <div class="item-composition">
+                                        <p class="opacitiy-p">Маршруты</p>
+                                        <p class="past-p"><a href="#" class="link-routes"><?php echo $pageData['countRoutes'] ?></a></p>
+                                    </div>
                                 </div>
                                 <a href="#" class="dell-card" ref="comp" id-card="<?php echo $val['id'] ?>">Удалить карточку</a>
                             <?php  } ?>
@@ -110,7 +113,7 @@
                                     </div>
                                     <div class="item-composition">
                                         <p class="opacitiy-p">Документы</p>
-                                        <p class="past-p"><a href="#">0</a></p>
+                                        <p class="past-p"><a href="#"><?php echo $pageData['countDocs'] ?></a></p>
                                     </div>
 
                                 </div>
@@ -266,7 +269,31 @@
                 <?php } ?>
             </div>
         </div>
-
+        <div style="display: none;">
+            <div class="hidden-list-docs box-modal">
+                <div class="docs-wrapper">
+                    <?php foreach ($pageData['docs'] as $key => $val) { ?>
+                        <div class="item-docs-wrapper">
+                            <a href="/docs/<?php echo $val['nameDocs'] ?>">
+                                <img src="/img/google-docs.png" alt="">
+                                <p><?php echo $val['nameDocs'] ?></p>
+                                <a href="#" id="<?php echo $val['id'] ?>" name-doc="<?php echo $val['nameDocs'] ?>" class="dell-docs">Удалить</a>
+                            </a>
+                        </div>
+                    <?php } ?>
+                    <a href="#" class="add-docs">+</a>
+                </div>
+                <div class="box-modal_close arcticmodal-close" style="font-size:22px">X</div>
+            </div>
+        </div>
+        <div style="display: none">
+            <div class="hidden-form-add-docs box-modal">
+                <form class="add-docs-form" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="docs" id="docsInput" required><br>
+                    <input type="submit" value="Загрузить">
+                </form>
+            </div>
+        </div>
     </main>
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/libs/articmodal/jquery.arcticmodal-0.3.min.js"></script>

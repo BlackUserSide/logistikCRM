@@ -8,6 +8,7 @@ define('MODEL_PATH', ROOT. '/models/');
 define('VIEW_PATH', ROOT. '/views/');
 define('UPLOADAVATAR_DIR', ROOT. '/image/avatar/');
 define('UPLOADDREAM_DIR', ROOT. '/image/dreamimage/');
+define("UPLOAD_FOLDER", ROOT. "/docs/");
 
 require_once('db.php');
 require_once('route.php');
