@@ -14,6 +14,9 @@ class ClientsController extends Controller
     }
     public function index()
     {
+        if (empty($_GET)) {
+            header('Location: /cabinet/clients?cli=company');
+        }
         if (!isset($_GET)) {
         } else if ($_GET['cli'] === 'routes') {
             $this->pageData['getDataRoutes'] = $this->model->getDataRoutes();
@@ -119,7 +122,7 @@ class ClientsController extends Controller
     {
         if (!empty($_POST)) {
             $number = $_POST['number'];
-            $numberUser = '907';
+            $numberUser = $_SESSION['user']['number'];
             $this->callNumber($numberUser, $number);
         } else {
 

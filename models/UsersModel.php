@@ -11,6 +11,7 @@ class UsersModel extends Model
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
+        $result = array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $result[$row['id']] = $row;
         }
@@ -21,6 +22,7 @@ class UsersModel extends Model
         $sql = "SELECT * FROM users";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
+        $result = array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $result[$row['id']] = $row;
         }

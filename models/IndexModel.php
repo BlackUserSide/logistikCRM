@@ -11,6 +11,7 @@ class IndexModel extends Model
         $stmt->bindValue('login', $login, PDO::PARAM_STR);
         $stmt->bindValue('password', $password, PDO::PARAM_STR);
         $stmt->execute();
+        $result = array();
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $result[$row['id']] = $row;
         }
@@ -21,6 +22,7 @@ class IndexModel extends Model
                 $_SESSION['user']['email'] = $val['email'];
                 $_SESSION['user']['name'] = $val['name'];
                 $_SESSION['user']['lastName'] = $val['lastName'];
+                $_SESSION['user']['number'] = $val['servNumber'];
                 $_SESSION['user']['status'] = $val['status'];
             }
             return true;

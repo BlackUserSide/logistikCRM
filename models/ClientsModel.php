@@ -11,6 +11,7 @@ class ClientsModel extends Model
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
+        $result = array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $result[$row['id']] = $row;
         }
@@ -21,6 +22,7 @@ class ClientsModel extends Model
         $sql = "SELECT * FROM company";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
+        $result = array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $result[$row['id']] = $row;
         }
@@ -38,6 +40,7 @@ class ClientsModel extends Model
         $sql = "SELECT * FROM carriers";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
+        $result = array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $result[$row['id']] = $row;
         }
@@ -48,6 +51,7 @@ class ClientsModel extends Model
         $sql = "SELECT * FROM routes";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
+        $result = array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $result[$row['id']] = $row;
         }

@@ -1,7 +1,7 @@
 <?php
 //$_SERVER['DOCUMENT_ROOT'] = '/var/www/u0789349/data/www/newsitetesting.ru';
 session_start();
-$_SERVER['DOCUMENT_ROOT'] = 'C:\Xqesc\OpenServer\domains\logistikCRM';
+$_SERVER['DOCUMENT_ROOT'] = '/var/www/u0789349/data/www/newsitetesting.ru';
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('CONTROLLER_PATH', ROOT. '/controllers/');
 define('MODEL_PATH', ROOT. '/models/');
