@@ -4,6 +4,7 @@
 
 class ClientsController extends Controller
 {
+
     private $pageTpl = '/views/clients.tpl.php';
 
     public function __construct()
@@ -112,6 +113,31 @@ class ClientsController extends Controller
             echo json_encode(array('status' => 'success'));
         } else {
             echo json_encode(array('status' => 'error'));
+        }
+    }
+    public function getCall()
+    {
+        if (!empty($_POST)) {
+            $number = $_POST['number'];
+            $numberUser = '907';
+            $this->callNumber($numberUser, $number);
+        } else {
+
+        }
+    }
+    public function callNumber($numberUser, $externalNumber)
+    {
+        $key = '0c0b9c-d0e48c2';
+        $secret = '90821b-5114b4-6da922-aee308-c315bce0';
+        $api = new BinotelApi($key, $secret);
+        $result = $api->sendRequest('calls/internal-number-to-external-number', array(
+            'internalNumber' => $numberUser,
+            'externalNumber' => $externalNumber
+        ));
+        if ($result['status'] === 'success') {
+            return true;
+        } else {
+            printf('REST API ошибка %s: %s %s', $result['code'], $result['message'], PHP_EOL);
         }
     }
 }

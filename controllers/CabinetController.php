@@ -94,6 +94,9 @@ class CabinetController extends Controller
         $id = $_SESSION['user']['id'];
         $this->model->dellAllNotife($id);
     }
+
+
+
     public function createNotification($id,  $text) {
         if ($id !== '' && $text !== '') {
             $date = date("m.d.y");

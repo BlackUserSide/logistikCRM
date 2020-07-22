@@ -94,7 +94,7 @@
                                     <td>
                                         <p><?php echo $val['nameContat'] ?></p>
                                     </td>
-                                    <td><a href="#" class="call-link-comp"><i class="fas fa-phone-volume"></i></a></td>
+                                    <td><a href="#" class="call-link-comp" number="<?php echo $val['phone'] ?>"><i class="fas fa-phone-volume"></i></a></td>
                                     <td><a href="#" class="dell-link-comp" data-event="company" id="<?php echo $val['id'] ?>"><i class="fas fa-minus-circle"></i></a></td>
                                 </tr>
                             <?php  } ?>
@@ -135,7 +135,7 @@
                                     <td>
                                         <p><?php echo $val['cubeCar'] ?></p>
                                     </td>
-                                    <td><a href="#" class="call-link-comp"><i class="fas fa-phone-volume"></i></a></td>
+                                    <td><a href="#" class="call-link-comp" number="<?php echo $val['driverContacts'] ?>"><i class="fas fa-phone-volume"></i></a></td>
                                     <td><a href="#" class="dell-link-comp" data-event="carrier" id="<?php echo $val['id'] ?>"><i class="fas fa-minus-circle"></i></a></td>
                                 </tr>
                             <?php  } ?>
@@ -151,7 +151,7 @@
                                 <td>Цена</td>
                                 <td>Километры</td>
                                 <td>Компания</td>
-                                <td>Звонок</td>
+                                
                                 <td>Удалить</td>
                             </tr>
                         </thead>
@@ -174,7 +174,7 @@
                                     <td>
                                         <p class="id-comp-wrapper"><?php echo $val['idComp'] ?></p>
                                     </td>
-                                    <td><a href="#" class="call-link-comp"><i class="fas fa-phone-volume"></i></a></td>
+                                    
                                     <td><a href="#" class="dell-link-comp" data-event="routes" id="<?php echo $val['id'] ?>"><i class="fas fa-minus-circle"></i></a></td>
                                 </tr>
                             <?php  } ?>
