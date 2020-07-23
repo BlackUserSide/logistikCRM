@@ -124,4 +124,17 @@ $(document).ready(function () {
             }
         });
     })
+    $('.link-call-card').click(function (e) {
+        e.preventDefault();
+        let number = $(this).attr('number');
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/clients/getCall",
+            data: {number: number},
+            dataType: "json",
+            success: function (result) {
+                
+            }
+        });
+    })
 })

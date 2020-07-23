@@ -45,6 +45,7 @@
                 </div>
             </div>
             <div class="header-client">
+                
                 <div class="logo-client">
                     <?php if (!empty($pageData['getDataComp'])) : ?>
                         <p>Компании</p>
@@ -61,7 +62,9 @@
                     <a href="#" class="link-add-client-wrapper">+</a>
                 </div>
             </div>
+            <a href="#" class="send-all">Отправить всем</a>
             <div class="table-wrapper-clients">
+                
                 <?php if (!empty($pageData['getDataComp'])) : ?>
                     <table class="table-wrapper" data-page-length='5'>
                         <thead>
@@ -71,6 +74,7 @@
                                 <td>Страна</td>
                                 <td>Город</td>
                                 <td>Контактное лицо</td>
+                                <td>Отправить письмо</td>
                                 <td>Звонок</td>
                                 <td>Удалить</td>
                             </tr>
@@ -94,6 +98,7 @@
                                     <td>
                                         <p><?php echo $val['nameContat'] ?></p>
                                     </td>
+                                    <td><a href="#" class="send-mail" mail="<?php echo $val['mail'] ?>"><i class="fas fa-envelope"></i></a></td>
                                     <td><a href="#" class="call-link-comp" number="<?php echo $val['phone'] ?>"><i class="fas fa-phone-volume"></i></a></td>
                                     <td><a href="#" class="dell-link-comp" data-event="company" id="<?php echo $val['id'] ?>"><i class="fas fa-minus-circle"></i></a></td>
                                 </tr>
@@ -317,6 +322,28 @@
                     </ul>
                 </div>
                 <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>                    
+            </div>
+        </div>
+        <div style="display: none">
+            <div class="hidden-send-mail box-modal">
+                <form class="send-mail-form">
+                    <h3 class="h3"></h3>
+                    <input type="hidden" name="mail" id="mailSend" value="">
+                    <textarea name="textMail"  cols="30" rows="10"></textarea>
+                    <button type="submit">Отправить</button>
+                    <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
+                </form>
+            </div>
+        </div>
+        <div style="display: none">
+            <div class="hidden-send-mail box-modal">
+                <form class="send-mail-form-all">
+                    <h3 class="h3">Отправить письмо всем: </h3>
+                    
+                    <textarea name="textMail"  cols="30" rows="10"></textarea>
+                    <button type="submit">Отправить</button>
+                    <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
+                </form>
             </div>
         </div>
     </main>

@@ -142,6 +142,7 @@ class CardModel extends Model
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue('id', $idCard, PDO::PARAM_STR);
         $stmt->execute();
+        $result = array();
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $result[$row['id']] = $row;
         }

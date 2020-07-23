@@ -52,4 +52,33 @@ class UsersModel extends Model
         $stmt->bindValue('status', $newStatus, PDO::PARAM_STR);
         $stmt->execute();
     }
+    public function checkUser($login)
+    {
+        $sql = "SELECT * FROM users WHERE login = :login";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('login', $login, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[$row['id']] = $row;
+        }
+        if (!empty($result)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    public function registerUser($login, $name, $lastName, $mail, $servNumber, $password)
+    {
+        $sql = "INSERT INTO users (login, name, lastName, email, password, servNumber, status) 
+        VALUES (:login, :name, :lastName, :email, :password, :servNumber, 2)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('login', $login, PDO::PARAM_STR);
+        $stmt->bindValue('name', $name, PDO::PARAM_STR);
+        $stmt->bindValue('lastName', $lastName, PDO::PARAM_STR);
+        $stmt->bindValue('email', $mail, PDO::PARAM_STR);
+        $stmt->bindValue('password', $password, PDO::PARAM_STR);
+        $stmt->bindValue('servNumber', $servNumber, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }

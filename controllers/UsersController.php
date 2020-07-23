@@ -52,4 +52,26 @@ class UsersController extends Controller
             }
         }
     }
+    public function register()
+    {
+        if (!empty($_POST)) {
+            $login = $_POST['login'];
+            if ($this->model->checkUser($login)) {
+                
+                $name = $_POST['name'];
+                $lastName = $_POST['lastName'];
+                $mail = $_POST['email'];
+                $servNumber = $_POST['servNumber'];
+                $password = $_POST['password'];
+                $password = md5($password);
+                $this->model->registerUser($login, $name, $lastName, $mail, $servNumber, $password);
+                echo json_encode(array('status' => 'success'));
+            } else {
+                echo json_encode(array('status' => 'wrong'));
+            }
+            
+        } else {
+            echo json_encode(array('status' => 'error'));
+        }
+    }
 }

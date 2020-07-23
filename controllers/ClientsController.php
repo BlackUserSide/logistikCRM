@@ -6,7 +6,7 @@ class ClientsController extends Controller
 {
 
     private $pageTpl = '/views/clients.tpl.php';
-
+    private $mailTpl = '/views/mail/mail.html';
     public function __construct()
     {
         $this->model = new ClientsModel();
@@ -125,7 +125,6 @@ class ClientsController extends Controller
             $numberUser = $_SESSION['user']['number'];
             $this->callNumber($numberUser, $number);
         } else {
-
         }
     }
     public function callNumber($numberUser, $externalNumber)
@@ -141,6 +140,39 @@ class ClientsController extends Controller
             return true;
         } else {
             printf('REST API ошибка %s: %s %s', $result['code'], $result['message'], PHP_EOL);
+        }
+    }
+    public function sendMailAll()
+    {
+        if (!empty($_POST)) {
+            $text = $_POST['textMail'];
+            $data = $this->model->getAllCompany();
+            foreach ($data as $key => $val) {
+                $mail = $val['mail'];
+                $headers = 'MIME-Version: 1.0' . "\r\n";
+                $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+                $emeilText = file_get_contents(ROOT . $this->mailTpl);
+                $emeilText = str_replace('%textMail%', $text, $emeilText);
+                mail($mail, "Сообщение от команды TransCorporation", $emeilText, $headers);
+            }
+            echo json_encode(array('status' => 'success'));
+        } else {
+            echo json_encode(array('status' => 'wrong'));
+        }
+    }
+    public function sendMail()
+    {
+        if (!empty($_POST)) {
+            $mail = $_POST['mail'];
+            $text = $_POST['textMail'];
+            $headers = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+            $emeilText = file_get_contents(ROOT . $this->mailTpl);
+            $emeilText = str_replace('%textMail%', $text, $emeilText);
+            mail($mail, "Сообщение от команды TransCorporation", $emeilText, $headers);
+            echo json_encode(array('status' => 'success'));
+        } else {
+            echo json_encode(array('status' => 'wrong'));
         }
     }
 }

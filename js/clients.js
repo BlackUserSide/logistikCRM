@@ -140,4 +140,51 @@ $(document).ready(function () {
             }
         });
     })
+    $('.send-mail').click(function(e) {
+        e.preventDefault();
+        let mail = $(this).attr('mail');
+        $('.hidden-send-mail').arcticmodal()
+        $('#mailSend').val(mail);
+        $('.send-mail-form h3').text(`Отправить письмо на: ${mail}`);
+    })
+    $('.send-mail-form').submit(function(e) {
+        e.preventDefault();
+        let form = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/clients/sendMail",
+            data: form.serialize(),
+            dataType: "json",
+            success: function (result) {
+                if (result.status == 'success') {
+                    alert('Отправленно');
+                    location.reload();
+                } else {
+                    alert('Ошибка');
+                }
+            }
+        });
+    })
+    $('.send-all').click(function(e) {
+        e.preventDefault();
+        $('.send-mail-form-all').arcticmodal();
+    })
+    $('.send-mail-form-all').submit(function(e) {
+        e.preventDefault();
+        let form = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/clients/sendMailAll",
+            data: form.serialize(),
+            dataType: "json",
+            success: function (result) {
+                if (result.status == 'success') {
+                    alert('Отправленно');
+                    location.reload();
+                } else {
+                    alert('Ошибка');
+                }
+            }
+        });
+    })
 })

@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="item-composition">
                                         <p class="opacitiy-p">Телефон</p>
-                                        <p class="past-p"><a href="#"><?php echo $val['phone'] ?></a></p>
+                                        <p class="past-p"><a href="#" number="<?php echo $val['phone'] ?>" class="link-call-card"><?php echo $val['phone'] ?></a></p>
                                     </div>
                                     <div class="item-composition">
                                         <p class="opacitiy-p">E-mail</p>
@@ -135,7 +135,7 @@
                                     </div>
                                     <div class="item-composition">
                                         <p class="opacitiy-p">Контакты водителя</p>
-                                        <p class="past-p"><a href="#"><?php echo $val['driverContacts'] ?></a></p>
+                                        <p class="past-p"><a href="#" class="link-call-card" number="<?php echo $val['driverContacts'] ?>"><?php echo $val['driverContacts'] ?></a></p>
                                     </div>
                                     <div class="item-composition">
                                         <p class="opacitiy-p">Кубатура</p>

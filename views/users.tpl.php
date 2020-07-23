@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="content-main-users">
-                a.add-user-
+                <a href="#" class="add-user-link">Добавить</a>
                 <table class="table-users">
                     <thead>
                         <tr>
@@ -96,6 +96,38 @@
                     
                 </div>
             <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
+            </div>
+        </div>
+        <div style="display: none;">
+            <div class="hidden-add-user box-modal">
+                <form class="add-user">
+                    <div class="input-label-add-user">
+                        <label>Логин</label><br>
+                        <input type="text" name="login" required>
+                    </div>
+                    <div class="input-label-add-user">
+                        <label>Имя</label><br>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="input-label-add-user">
+                        <label>Фамилия</label><br>
+                        <input type="text" name="lastName" required>
+                    </div>
+                    <div class="input-label-add-user">
+                        <label>email</label><br>
+                        <input type="text" name="email" required>
+                    </div>
+                    <div class="input-label-add-user">
+                        <label>Пароль</label><br>
+                        <input type="text" name="password" required>
+                    </div>
+                    <div class="input-label-add-user">
+                        <label>Линия Binotel</label><br>
+                        <input type="text" name="servNumber" required>
+                    </div>
+                    
+                    <button type="submit">Зарегистрировать</button>
+                </form>
             </div>
         </div>
     </main>

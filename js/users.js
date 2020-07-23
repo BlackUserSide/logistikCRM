@@ -45,5 +45,29 @@ $(document).ready(function () {
             }
         });
     })
+    $('.add-user-link').click(function (e) {
+        e.preventDefault();
+        $('.hidden-add-user').arcticmodal();
+    })
+    $('.add-user').submit(function(e) {
+        e.preventDefault();
+        let form = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/users/register",
+            data: form.serialize(),
+            dataType: "json",
+            success: function (result) {
+                if (result.status == 'success') {
+                    alert('Сотрудник добавлен');
+                    location.reload();
+                } else if (result.status == 'wrong') {
+                    alert('Логин занят');
+                } else {
+                    alert('Ошибка');
+                }
+            }
+        });
+    })
     
 })
