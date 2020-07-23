@@ -172,4 +172,17 @@ class CardModel extends Model
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
     }
+    public function changeStatusCli($val, $id, $table)
+    {
+        if ($table === 'comp') {
+            $sql = "UPDATE company SET statusCli = :val WHERE id = :id";
+        }
+        else {
+            $sql = "UPDATE company SET statusCli = :val WHERE id = :id";
+        }
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('val', $val, PDO::PARAM_STR);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+    }
 }

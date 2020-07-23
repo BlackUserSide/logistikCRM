@@ -187,6 +187,7 @@ class ClientsController extends Controller
                     $country = $val['country'];
                     $city = $val['city'];
                     $id = $val['id'];
+                    $statusCli = $val['statusCli'];
                 }
                 echo json_encode(array(
                     'status' => 'success',
@@ -195,6 +196,7 @@ class ClientsController extends Controller
                     'country' => $country, 
                     'city' => $city,
                     'id' => $id,
+                    'statusCli' => $statusCli,
                 ));
             } else  if (!empty($dataCarriers)) {
                 $dataCarriers = $this->model->getDataCarriers($number);
@@ -203,6 +205,7 @@ class ClientsController extends Controller
                     $carNumber = $val['carNumber'];
                     $nameDriver = $val['nameDriver'];
                     $id = $val['id'];
+                    $statusCli = $val['statusCli'];
                 }
                 echo json_encode(array(
                     'status' => 'success',
@@ -211,6 +214,7 @@ class ClientsController extends Controller
                     'carNumber' => $carNumber, 
                     'nameDriver' => $nameDriver,
                     'id' => $id,
+                    'statusCli' => $statusCli,
                 ));
             } else {
                 echo json_encode(array(

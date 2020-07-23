@@ -40,12 +40,12 @@ $(document).ready(function () {
                 }
             });
         }
-        
+
     })
     $('.table-wrapper').DataTable()
     $('.dataTables_wrapper').css('width', '100%');
     $('.dataTable').css('width', '100%');
-    
+
     $('.dataTables_length').css('display', 'none');
     $.each($('.id-comp-wrapper'), function (index, val) {
         let th = $(this)
@@ -133,21 +133,21 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "/cabinet/clients/getCall",
-            data: {number: number},
+            data: { number: number },
             dataType: "json",
             success: function (result) {
-                
+
             }
         });
     })
-    $('.sends-mails-one').click(function(e) {
+    $('.sends-mails-one').click(function (e) {
         e.preventDefault();
         let mail = $(this).attr('mail');
         $('.hidden-send-mail').arcticmodal()
         $('#mailSend').val(mail);
         $('.send-mail-form h3').text(`Отправить письмо на: ${mail}`);
     })
-    $('.send-mail-form').submit(function(e) {
+    $('.send-mail-form').submit(function (e) {
         e.preventDefault();
         let form = $(this);
         $.ajax({
@@ -165,11 +165,11 @@ $(document).ready(function () {
             }
         });
     })
-    $('.send-all').click(function(e) {
+    $('.send-all').click(function (e) {
         e.preventDefault();
         $('.send-mail-form-all').arcticmodal();
     })
-    $('.send-mail-form-all').submit(function(e) {
+    $('.send-mail-form-all').submit(function (e) {
         e.preventDefault();
         let form = $(this);
         $.ajax({
@@ -191,51 +191,68 @@ $(document).ready(function () {
         e.preventDefault();
         $('.hidden-form-call-number').arcticmodal();
     })
-    $('.hidden-form-call-number').arcticmodal();
-    $('.call-to-number').submit(function(e) {
+    $('.call-to-number').submit(function (e) {
         e.preventDefault();
         let number = $('#numberCall').val();
         $.ajax({
             type: "POST",
             url: "/cabinet/clients/getCall",
-            data: {number: number},
+            data: { number: number },
             dataType: "json",
             success: function (result) {
-                
+
             }
         });
     })
-    $('#numberCall').keyup(function(e) {
+    $('#numberCall').keyup(function (e) {
         e.preventDefault()
         let number = $(this).val();
-        $('#empty-p-call').detach();
+        
         $('.item-company-call').detach();
         $('.item-carr-call').detach();
-        
+        $('#p-link-trigger').css('display', 'block');
         $.ajax({
             type: "POST",
             url: "/cabinet/clients/getNumberComp",
-            data: {number: number},
+            data: { number: number },
             dataType: "json",
             success: function (result) {
-                console.log(result)
+               
                 if (result.status === 'empty') {
-                    let html = '<p id="empty-p-call">Не найденно ни одного совпадения</p>'
-                    $('.wrapperr-card').prepend(html);
+                    
                 } else if (result.status === 'success' && result.dataInf === 'company') {
-                    let html = `<div class="item-company-call"><p class="id-comp-call" style="display: none">${result.id}</p><h3 class="h3">${result.nameCompany}</h3><p>${result.country}</p><p>${result.city}</p><a href="/cabinet/card?id=${result.id}&ref=comp">Перейти</a></div>`;
+                    let htmlStatus = '';
+                    if (result.statusCli == '0') {
+                        htmlStatus = '<p><span class="orange-stat-table"></span></p>';
+                        
+                    } else if (result.statusCli == '1') {
+                        htmlStatus = '<p><span class="green-stat-table"></span></p>';
+                    } else {
+                        htmlStatus = '<p><span class="red-stat-table"></span></p>';
+                    }
+                    let html = `<div class="item-company-call"><p class="id-comp-call" style="display: none">${result.id}</p><h3 class="h3">${result.nameCompany}</h3><p>${result.country}</p><p>${result.city}</p>${htmlStatus}<a href="/cabinet/card?id=${result.id}&ref=comp">Перейти</a></div>`;
                     $('.wrapperr-card').prepend(html);
+                    $('#p-link-trigger').css('display', 'none');
                 } else {
-                    let html = `<div class="item-carr-call"><p class="id-carr-call" style="display: none">${result.id}</p><h3 class="h3">${result.nameDriver}</h3><p>${result.carModel}</p><p>${result.carNumber}</p><a href="/cabinet/card?id=${result.id}&ref=carr">Перейти</a></div>`;
+                    let htmlStatus = '';
+                    if (result.statusCli == '0') {
+                        htmlStatus = '<p><span class="orange-stat-table"></span></p>';
+                        
+                    } else if (result.statusCli == '1') {
+                        htmlStatus = '<p><span class="green-stat-table"></span></p>';
+                    } else {
+                        htmlStatus = '<p><span class="red-stat-table"></span></p>';
+                    }
+                    let html = `<div class="item-carr-call"><p class="id-carr-call" style="display: none">${result.id}</p><h3 class="h3">${result.nameDriver}</h3><p>${result.carModel}</p><p>${result.carNumber}</p>${htmlStatus}<a href="/cabinet/card?id=${result.id}&ref=carr">Перейти</a></div>`;
                     $('.wrapperr-card').prepend(html);
+                    $('#p-link-trigger').css('display', 'none');
                 }
             }
         });
     })
-    $('.item-company-call').click(function () {
-        let id = $('.id-comp-call').text();
-        $(location).attr('href', `/cabinet/card?id=${id}&ref=comp`);
+    $('#link-trigger').click(function (e) {
+        e.preventDefault();
+        $('.hidden-add-company').arcticmodal();
     })
-    
-    
+
 })

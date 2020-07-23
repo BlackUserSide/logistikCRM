@@ -59,6 +59,15 @@
                             <?php foreach ($pageData['dataCard'] as $key => $val) { ?>
                                 <div class="name-composition">
                                     <h3 class="h3"><?php echo $val['nameCompany'] ?></h3>
+                                    <p class="status-card">
+                                        <?php if ($val['statusCli'] == '0') : ?>
+                                            <a href="#" class="link-change-status-cli"><span class="orange-stat-table"></span></a>
+                                        <?php elseif ($val['statusCli'] == '1') : ?>
+                                            <a href="#" class="link-change-status-cli"><span class="green-stat-table"></span></a>
+                                        <?php elseif ($val['statusCli'] == '2') : ?>
+                                            <a href="#" class="link-change-status-cli"><span class="red-stat-table"></span></a>
+                                        <?php endif ?>
+                                    </p>
                                 </div>
                                 <div class="composition-main-card">
                                     <div class="item-composition">
@@ -97,6 +106,15 @@
                             <?php foreach ($pageData['dataCard'] as $key => $val) { ?>
                                 <div class="name-composition">
                                     <h3 class="h3"><?php echo $val['rote'] ?></h3>
+                                    <p class="status-card">
+                                        <?php if ($val['statusCli'] == '0') : ?>
+                                            <a href="#" class="link-change-status-cli"><span class="orange-stat-table"></span></a>
+                                        <?php elseif ($val['statusCli'] == '1') : ?>
+                                            <a href="#" class="link-change-status-cli"><span class="green-stat-table"></span></a>
+                                        <?php elseif ($val['statusCli'] == '2') : ?>
+                                            <a href="#" class="link-change-status-cli"><span class="red-stat-table"></span></a>
+                                        <?php endif ?>
+                                    </p>
                                 </div>
                                 <div class="composition-main-card">
                                     <div class="item-composition">
@@ -293,6 +311,19 @@
                     <input type="submit" value="Загрузить">
                 </form>
             </div>
+        </div>
+        <div style="display: none;">
+            <div class="hidden-change-status-clis box-modal">
+                <div class="link-wrapper-hidden-cli">
+                    <input type="hidden" id="idCardChange" value="<?php echo $_GET['id'] ?>">
+                    <input type="hidden" id="refCardChange" value="<?php echo $_GET['ref'] ?>">
+                    <a href="#" class="change-status-link-hid" val="1">Хороший клиент</a><br>
+                    <a href="#" class="change-status-link-hid" val="0">Стандар</a><br>
+                    <a href="#" class="change-status-link-hid" val="2">Плохой клиент</a><br>
+                </div>
+
+            </div>
+
         </div>
     </main>
     <script src="/js/jquery-3.4.1.min.js"></script>

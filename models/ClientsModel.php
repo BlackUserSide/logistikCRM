@@ -68,7 +68,7 @@ class ClientsModel extends Model
     }
     public function addCompany($name, $country, $city, $phone, $mail, $adress, $contact)
     {
-        $sql = "INSERT INTO company (nameCompany, city, country, nameContat, category, docs, adress, phone, mail)
+        $sql = "INSERT INTO company (nameCompany, city, country, nameContat, statusCli, docs, adress, phone, mail)
         VALUES (:name, :city, :country, :contact, 0, 0, :adress, :phone, :mail)";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue('name', $name, PDO::PARAM_STR);
@@ -94,8 +94,8 @@ class ClientsModel extends Model
     }
     public function addCarr($carModel, $carNumber, $nameDriver, $driverContact, $typeCar, $cubes)
     {
-        $sql = 'INSERT INTO carriers (carModel, carNumber, driverContacts, photo, typeCar, cubeCar, nameDriver)
-        VALUES (:carModel, :carNumber, :driverContacts, 0, :typeCar, :cubeCar, :nameDriver)';
+        $sql = 'INSERT INTO carriers (carModel, carNumber, driverContacts, photo, typeCar, cubeCar, nameDriver, statusCli)
+        VALUES (:carModel, :carNumber, :driverContacts, 0, :typeCar, :cubeCar, :nameDriver, 0)';
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue('carModel', $carModel, PDO::PARAM_STR);
         $stmt->bindValue('carNumber', $carNumber, PDO::PARAM_STR);

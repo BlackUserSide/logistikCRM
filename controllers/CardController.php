@@ -4,13 +4,12 @@
 class CardController extends Controller 
 {
     private $pageTpl = '/views/card.tpl.php';
-
+    
     public function __construct()
     {
         $this->model = new CardModel();
         $this->view = new View();
     }
-
     public function index()
     {
         if (!isset($_SESSION['user'])) {
@@ -121,6 +120,18 @@ class CardController extends Controller
             echo json_encode(array('status' => 'success'));
         } else {
             echo json_encode(array('status' => 'wrong'));
+        }
+    }
+    public function changeStatusCli()
+    {
+        if (!empty($_POST)) {
+            $val = $_POST['val'];
+            $id = $_POST['id'];
+            $table = $_POST['table'];
+            $this->model->changeStatusCli($val, $id, $table);
+            echo json_encode(array($id, $referal, 'status' => 'success'));
+        } else {
+            echo json_encode(array('status' => 'error'));
         }
     }
 }

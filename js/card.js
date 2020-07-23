@@ -137,4 +137,29 @@ $(document).ready(function () {
             }
         });
     })
+    $('.item-company-call').click(function () {
+        let id = $('.id-comp-call').text();
+        $(location).attr('href', `/cabinet/card?id=${id}&ref=comp`);
+    })
+    $('.link-change-status-cli').click(function (e) {
+        e.preventDefault();
+        $('.hidden-change-status-clis').arcticmodal();
+    })
+    $('.change-status-link-hid').click(function (e) {
+        e.preventDefault();
+        let value = $(this).attr('val');
+        let id = $('#idCardChange').val();
+        let ref = $('#refCardChange').val();
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/card/changeStatusCli",
+            data: {val: value, id: id, ref: ref},
+            dataType: "json",
+            success: function (result) {
+                if (result.status === 'success') {
+                    location.reload();
+                }
+            }
+        });
+    })
 })

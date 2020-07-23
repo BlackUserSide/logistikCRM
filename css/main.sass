@@ -958,10 +958,16 @@ section
         width: 45%
         padding: 10px 0
         .name-composition
+            display: flex
+            justify-content: space-between
             padding: 10px 10px
             border-bottom: 1px solid #000000
             .h3
                 margin: 0
+            p
+                margin: 0
+                padding: 0
+                padding-top: 5px
     .dell-card
         position: absolute
         right: 10px
@@ -1266,8 +1272,8 @@ section
     &:hover
         transform: rotate(1.1)
 .hidden-form-call-number
-    padding: 10px 0
-    height: 250px
+    padding: 10px 10px
+    height: 300px
 .call-to-number
     display: flex
     flex-direction: column
@@ -1318,6 +1324,44 @@ section
     padding: 0 15px
     .h3
         text-align: center       
+.orange-stat-table
+    display: inline-block
+    width: 15px
+    height: 15px
+    background-color: #FF5F00
+    border: 2px solid #ccc
+    border-radius: 50%
+.green-stat-table
+    display: inline-block
+    width: 15px
+    height: 15px
+    background-color: #3BDA00
+    border: 2px solid #ccc
+    border-radius: 50%
+.red-stat-table
+    display: inline-block
+    width: 15px
+    height: 15px
+    background-color: #FF0000
+    border: 2px solid #ccc
+    border-radius: 50%
+
+.link-wrapper-hidden-cli
+    text-align: center
+    padding-top: 15px
+    padding-bottom: 15px
+    a
+        display: inline-block
+        margin-bottom: 15px
+        background: #283EFF
+        font-size: 18px
+        color: #ffffff
+        padding: 5px 15px
+        text-decoration: none
+        width: 150px
+        border-radius: 5px
+
+
 
 
 @media (max-width: 950px)

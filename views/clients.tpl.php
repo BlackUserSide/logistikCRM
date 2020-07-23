@@ -75,6 +75,7 @@
                                 <td>Страна</td>
                                 <td>Город</td>
                                 <td>Контактное лицо</td>
+                                <td>Статус</td>
                                 <td>Отправить письмо</td>
                                 <td>Звонок</td>
                                 <td>Удалить</td>
@@ -99,6 +100,17 @@
                                     <td>
                                         <p><?php echo $val['nameContat'] ?></p>
                                     </td>
+                                    <td>
+                                        <p>
+                                            <?php if ($val['statusCli'] == '0') : ?>
+                                                <span class="orange-stat-table"></span> 
+                                            <?php elseif ($val['statusCli'] == '1') : ?>
+                                                <span class="green-stat-table"></span> 
+                                            <?php elseif($val['statusCli'] == '2') : ?>
+                                                <span class="red-stat-table"></span> 
+                                            <?php endif ?>
+                                        </p>
+                                    </td>
                                     <td><a href="#" class="sends-mails-one" mail="<?php echo $val['mail'] ?>"><i class="fas fa-envelope"></i></a></td>
                                     <td><a href="#" class="call-link-comp" number="<?php echo $val['phone'] ?>"><i class="fas fa-phone-volume"></i></a></td>
                                     <td><a href="#" class="dell-link-comp" data-event="company" id="<?php echo $val['id'] ?>"><i class="fas fa-minus-circle"></i></a></td>
@@ -117,6 +129,7 @@
                                 <td>Номер</td>
                                 <td>Тип Траспорта</td>
                                 <td>Кубантура</td>
+                                <td>Статус</td>
                                 <td>Звонок</td>
                                 <td>Удалить</td>
                             </tr>
@@ -140,6 +153,17 @@
                                     </td>
                                     <td>
                                         <p><?php echo $val['cubeCar'] ?></p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <?php if ($val['statusCli'] == '0') : ?>
+                                                <span class="orange-stat-table"></span> 
+                                            <?php elseif ($val['statusCli'] == '1') : ?>
+                                                <span class="green-stat-table"></span> 
+                                            <?php elseif($val['statusCli'] == '2') : ?>
+                                                <span class="red-stat-table"></span> 
+                                            <?php endif ?>
+                                        </p>
                                     </td>
                                     <td><a href="#" class="call-link-comp" number="<?php echo $val['driverContacts'] ?>"><i class="fas fa-phone-volume"></i></a></td>
                                     <td><a href="#" class="dell-link-comp" data-event="carrier" id="<?php echo $val['id'] ?>"><i class="fas fa-minus-circle"></i></a></td>
@@ -355,7 +379,7 @@
                     <button type="submit"><i class="fas fa-phone-volume"></i></button>
                 </form>
                 <div class="wrapperr-card">
-
+                   <p id="p-link-trigger">Такой компании нет. <a href="#" id="link-trigger">Добавить?</a></p>           
                 </div>
             </div>
         </div>

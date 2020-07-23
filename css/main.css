@@ -1401,12 +1401,24 @@ section {
 }
 
 .content-card .composition-card .name-composition {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 10px 10px;
   border-bottom: 1px solid #000000;
 }
 
 .content-card .composition-card .name-composition .h3 {
   margin: 0;
+}
+
+.content-card .composition-card .name-composition p {
+  margin: 0;
+  padding: 0;
+  padding-top: 5px;
 }
 
 .content-card .dell-card {
@@ -1846,8 +1858,8 @@ section {
 }
 
 .hidden-form-call-number {
-  padding: 10px 0;
-  height: 250px;
+  padding: 10px 10px;
+  height: 300px;
 }
 
 .call-to-number {
@@ -1924,6 +1936,51 @@ section {
 
 .item-carr-call .h3 {
   text-align: center;
+}
+
+.orange-stat-table {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #FF5F00;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+}
+
+.green-stat-table {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #3BDA00;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+}
+
+.red-stat-table {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #FF0000;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+}
+
+.link-wrapper-hidden-cli {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.link-wrapper-hidden-cli a {
+  display: inline-block;
+  margin-bottom: 15px;
+  background: #283EFF;
+  font-size: 18px;
+  color: #ffffff;
+  padding: 5px 15px;
+  text-decoration: none;
+  width: 150px;
+  border-radius: 5px;
 }
 
 @media (max-width: 950px) {
