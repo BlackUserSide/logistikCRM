@@ -4,10 +4,10 @@
 // БАЗА ДАНЫХ
 
 class DB{
-    const USER = "u0789349_testpar";
-    const PASS = '200899Xs1loading';
+    const USER = "root";
+    const PASS = 'root';
     const HOST = "localhost";
-    const DB = "u0789349_logistikcrm";
+    const DB = "logiccrm";
 
     public static function cannToDB() {
         $user = self::USER;

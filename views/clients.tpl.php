@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="header-client">
-                
+
                 <div class="logo-client">
                     <?php if (!empty($pageData['getDataComp'])) : ?>
                         <p>Компании</p>
@@ -63,8 +63,9 @@
                 </div>
             </div>
             <a href="#" class="send-all">Отправить всем</a>
+            <a href="#" class="take-call-wrapper"><i class="fas fa-phone-volume"></i></a>
             <div class="table-wrapper-clients">
-                
+
                 <?php if (!empty($pageData['getDataComp'])) : ?>
                     <table class="table-wrapper" data-page-length='5'>
                         <thead>
@@ -98,7 +99,7 @@
                                     <td>
                                         <p><?php echo $val['nameContat'] ?></p>
                                     </td>
-                                    <td><a href="#" class="send-mail" mail="<?php echo $val['mail'] ?>"><i class="fas fa-envelope"></i></a></td>
+                                    <td><a href="#" class="sends-mails-one" mail="<?php echo $val['mail'] ?>"><i class="fas fa-envelope"></i></a></td>
                                     <td><a href="#" class="call-link-comp" number="<?php echo $val['phone'] ?>"><i class="fas fa-phone-volume"></i></a></td>
                                     <td><a href="#" class="dell-link-comp" data-event="company" id="<?php echo $val['id'] ?>"><i class="fas fa-minus-circle"></i></a></td>
                                 </tr>
@@ -156,7 +157,7 @@
                                 <td>Цена</td>
                                 <td>Километры</td>
                                 <td>Компания</td>
-                                
+
                                 <td>Удалить</td>
                             </tr>
                         </thead>
@@ -179,7 +180,7 @@
                                     <td>
                                         <p class="id-comp-wrapper"><?php echo $val['idComp'] ?></p>
                                     </td>
-                                    
+
                                     <td><a href="#" class="dell-link-comp" data-event="routes" id="<?php echo $val['id'] ?>"><i class="fas fa-minus-circle"></i></a></td>
                                 </tr>
                             <?php  } ?>
@@ -238,7 +239,7 @@
                     </div>
                     <div class="input-label-wrapper-hidden">
                         <label>Почтовый адресс</label><br>
-                        <input type="text" name="adress" >
+                        <input type="text" name="adress">
                     </div>
                     <button type="submit">Добавить</button>
                 </form>
@@ -257,7 +258,7 @@
                     <div class="input-label-wrapper-hidden">
                         <label>Цена(500UAN)</label><br>
 
-                        <input type="text" name="price"  required>
+                        <input type="text" name="price" required>
 
                     </div>
                     <div class="input-label-wrapper-hidden">
@@ -289,7 +290,7 @@
                     <div class="input-label-wrapper-hidden">
                         <label>Номер Автомобиля</label><br>
 
-                        <input type="text" name="carNumber"  required>
+                        <input type="text" name="carNumber" required>
 
                     </div>
                     <div class="input-label-wrapper-hidden">
@@ -318,10 +319,10 @@
                 <div class="list-notification">
                     <a href="#" id="clearNotif">Очистить</a>
                     <ul>
-                        
+
                     </ul>
                 </div>
-                <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>                    
+                <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
             </div>
         </div>
         <div style="display: none">
@@ -329,24 +330,59 @@
                 <form class="send-mail-form">
                     <h3 class="h3"></h3>
                     <input type="hidden" name="mail" id="mailSend" value="">
-                    <textarea name="textMail"  cols="30" rows="10"></textarea>
+                    <textarea name="textMail" cols="30" rows="10"></textarea>
                     <button type="submit">Отправить</button>
                     <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
                 </form>
             </div>
         </div>
         <div style="display: none">
-            <div class="hidden-send-mail box-modal">
+            <div class="hidden-send-mails box-modal">
                 <form class="send-mail-form-all">
-                    <h3 class="h3">Отправить письмо всем: </h3>
-                    
-                    <textarea name="textMail"  cols="30" rows="10"></textarea>
+                    <h3 class="h3">Отправить письмо всем</h3>
+
+                    <textarea name="textMail" cols="30" rows="10"></textarea>
                     <button type="submit">Отправить</button>
                     <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
                 </form>
             </div>
         </div>
+        <div style="display: none;">
+            <div class="hidden-form-call-number box-modal">
+                <form class="call-to-number">
+                    <label for="numberCall">Введите номер телефона</label>
+                    <input type="text" onkeyup="testStr(this);testJump(this);" maxlength="20" name="number" id="numberCall" required>
+                    <button type="submit"><i class="fas fa-phone-volume"></i></button>
+                </form>
+                <div class="wrapperr-card">
+
+                </div>
+            </div>
+        </div>
     </main>
+    <script type="text/javascript">
+        function testJump(x) {
+            var ml = ~~x.getAttribute('maxlength');
+            if (ml && x.value.length >= ml) {
+                do {
+                    x = x.nextSibling;
+                }
+                while (x && !(/text/.test(x.type)));
+                if (x && /text/.test(x.type)) {
+                    x.focus();
+                }
+            }
+        }
+
+        function testStr(input) {
+            var value = input.value;
+            var rep = /[-\.;":'a-zA-Zа-яА-Я]/;
+            if (rep.test(value)) {
+                value = value.replace(rep, '');
+                input.value = value;
+            }
+        }
+    </script>
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/libs/DataTables-1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="/libs/articmodal/jquery.arcticmodal-0.3.min.js"></script>

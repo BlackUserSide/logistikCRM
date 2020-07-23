@@ -175,4 +175,49 @@ class ClientsController extends Controller
             echo json_encode(array('status' => 'wrong'));
         }
     }
+    public function getNumberComp()
+    {
+        if (!empty($_POST)) {
+            $number = $_POST['number'];
+            $dataComp = $this->model->getDataCompany($number);
+            $dataCarriers = $this->model->getDataCarriers($number);
+            if (!empty($dataComp)) {
+                foreach ($dataComp as $key => $val) {
+                    $nameCompany = $val['nameCompany'];
+                    $country = $val['country'];
+                    $city = $val['city'];
+                    $id = $val['id'];
+                }
+                echo json_encode(array(
+                    'status' => 'success',
+                    'dataInf' => 'company',
+                    'nameCompany' => $nameCompany, 
+                    'country' => $country, 
+                    'city' => $city,
+                    'id' => $id,
+                ));
+            } else  if (!empty($dataCarriers)) {
+                $dataCarriers = $this->model->getDataCarriers($number);
+                foreach ($dataCarriers as $key => $val) {
+                    $carModel = $val['carModel'];
+                    $carNumber = $val['carNumber'];
+                    $nameDriver = $val['nameDriver'];
+                    $id = $val['id'];
+                }
+                echo json_encode(array(
+                    'status' => 'success',
+                    'dataInf' => 'carr',
+                    'carModel' => $carModel, 
+                    'carNumber' => $carNumber, 
+                    'nameDriver' => $nameDriver,
+                    'id' => $id,
+                ));
+            } else {
+                echo json_encode(array(
+                    'status' => 'empty'));
+            } 
+        } else {
+            echo json_encode(array('status' => 'error'));
+        }
+    }
 }

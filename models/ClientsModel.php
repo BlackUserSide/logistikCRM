@@ -130,4 +130,28 @@ class ClientsModel extends Model
         }
         return $result;
     }
+    public function getDataCompany($number)
+    {
+        $sql = "SELECT * FROM company WHERE phone = :number";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('number', $number, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[$row['id']] = $row;
+        }
+        return $result;
+    }
+    public function getDataCarriers($number) 
+    {
+        $sql = "SELECT * FROM carriers WHERE driverContacts = :number";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('number', $number, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[$row['id']] = $row;
+        }
+        return $result;
+    }
 }

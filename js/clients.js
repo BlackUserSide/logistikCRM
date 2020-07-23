@@ -140,7 +140,7 @@ $(document).ready(function () {
             }
         });
     })
-    $('.send-mail').click(function(e) {
+    $('.sends-mails-one').click(function(e) {
         e.preventDefault();
         let mail = $(this).attr('mail');
         $('.hidden-send-mail').arcticmodal()
@@ -187,4 +187,55 @@ $(document).ready(function () {
             }
         });
     })
+    $('.take-call-wrapper').click(function (e) {
+        e.preventDefault();
+        $('.hidden-form-call-number').arcticmodal();
+    })
+    $('.hidden-form-call-number').arcticmodal();
+    $('.call-to-number').submit(function(e) {
+        e.preventDefault();
+        let number = $('#numberCall').val();
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/clients/getCall",
+            data: {number: number},
+            dataType: "json",
+            success: function (result) {
+                
+            }
+        });
+    })
+    $('#numberCall').keyup(function(e) {
+        e.preventDefault()
+        let number = $(this).val();
+        $('#empty-p-call').detach();
+        $('.item-company-call').detach();
+        $('.item-carr-call').detach();
+        
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/clients/getNumberComp",
+            data: {number: number},
+            dataType: "json",
+            success: function (result) {
+                console.log(result)
+                if (result.status === 'empty') {
+                    let html = '<p id="empty-p-call">Не найденно ни одного совпадения</p>'
+                    $('.wrapperr-card').prepend(html);
+                } else if (result.status === 'success' && result.dataInf === 'company') {
+                    let html = `<div class="item-company-call"><p class="id-comp-call" style="display: none">${result.id}</p><h3 class="h3">${result.nameCompany}</h3><p>${result.country}</p><p>${result.city}</p><a href="/cabinet/card?id=${result.id}&ref=comp">Перейти</a></div>`;
+                    $('.wrapperr-card').prepend(html);
+                } else {
+                    let html = `<div class="item-carr-call"><p class="id-carr-call" style="display: none">${result.id}</p><h3 class="h3">${result.nameDriver}</h3><p>${result.carModel}</p><p>${result.carNumber}</p><a href="/cabinet/card?id=${result.id}&ref=carr">Перейти</a></div>`;
+                    $('.wrapperr-card').prepend(html);
+                }
+            }
+        });
+    })
+    $('.item-company-call').click(function () {
+        let id = $('.id-comp-call').text();
+        $(location).attr('href', `/cabinet/card?id=${id}&ref=comp`);
+    })
+    
+    
 })

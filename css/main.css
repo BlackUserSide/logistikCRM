@@ -1752,6 +1752,180 @@ section {
           transform: rotate(1.1);
 }
 
+.send-all {
+  text-decoration: none;
+  color: #ffffff;
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: none;
+  margin-left: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #283EFF;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  outline: none;
+}
+
+.send-all:hover {
+  -webkit-transform: rotate(1.1);
+          transform: rotate(1.1);
+}
+
+.send-mail-form-all {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.send-mail-form-all textarea {
+  border: 1px solid #000000;
+  outline: none;
+  padding: 10px 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.send-mail-form-all button {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #283EFF;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  outline: none;
+}
+
+.send-mail-form-all button:hover {
+  -webkit-transform: rotate(1.1);
+          transform: rotate(1.1);
+}
+
+.take-call-wrapper {
+  text-decoration: none;
+  color: #ffffff;
+  display: inline-block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: none;
+  margin-left: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #283EFF;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+  outline: none;
+}
+
+.take-call-wrapper:hover {
+  -webkit-transform: rotate(1.1);
+          transform: rotate(1.1);
+}
+
+.hidden-form-call-number {
+  padding: 10px 0;
+  height: 250px;
+}
+
+.call-to-number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 2px solid #283EFF;
+  position: relative;
+}
+
+.call-to-number label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.call-to-number input {
+  display: inline-block;
+  border: none;
+  border-bottom: 2px solid #283EFF;
+  height: 22px;
+  margin-bottom: 15px;
+  outline: none;
+  font-size: 18px;
+  padding: 0 5px;
+}
+
+.call-to-number button {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  background-color: #283EFF;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  padding-top: 2px;
+  bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.call-to-number button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.item-company-call {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #283EFF;
+  padding: 0 15px;
+}
+
+.item-company-call .h3 {
+  text-align: center;
+}
+
+.item-carr-call {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #283EFF;
+  padding: 0 15px;
+}
+
+.item-carr-call .h3 {
+  text-align: center;
+}
+
 @media (max-width: 950px) {
   .login-wrapper {
     width: 50%;
