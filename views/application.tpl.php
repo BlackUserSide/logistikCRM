@@ -24,7 +24,8 @@
                     <li class="task-link"><a href="/cabinet/task"><i class="fas fa-clipboard"></i>Задачи</a></li>
                     <li class="clients-link"><a href="/cabinet/clients"><i class="fas fa-user-friends"></i>Клиенты</a></li>
                     <li class="add-link"><a href="/cabinet/users"><i class="fas fa-plus-square"></i>Сотрудники</a></li>
-                    <li class="setings-link"><a href="/cabinet/declare"><i class="fas fa-cog"></i>Заявки</a></li>
+                    <li class="setings-link"><a href="/cabinet/application"><i class="fas fa-cog"></i>Заявки</a></li>
+                    <li class="setings-link"><a href="/cabinet/transactions"><i class="fas fa-money-check-alt"></i>Сделки</a></li>
                     <li><a href="#" class="log-out-user"><i class="fas fa-sign-out-alt"></i>Выйти</a></li>
                 </ul>
             </nav>
@@ -60,7 +61,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($pageData['dataApplication'] as $key => $val) { ?>
+                            <?php foreach ($pageData['dataApplication'] as $key => $val) { ?>
                                 <tr>
                                     <td><?php echo $val['id'] ?></td>
                                     <td><?php echo $val['fromWhere'] ?></td>
@@ -71,7 +72,7 @@
                                     <td><a href="#" class="call-to-number-app" number="<?php echo $val['phone'] ?>"><i class="fas fa-phone-volume"></i></a></td>
                                     <td><a href="#" class="show-text-link" id="<?php echo $val['id'] ?>"><?php echo substr($val['text'], 0, 32) ?>..</a></td>
                                 </tr>
-                            <?php }?>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -89,4 +90,5 @@
     <script src="/js/application.js"></script>
     <script src="/js/main.user.js"></script>
 </body>
+
 </html>

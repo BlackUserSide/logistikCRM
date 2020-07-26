@@ -19,11 +19,12 @@
             </div>
             <nav class="navbar-nav">
                 <ul>
-                    <li class="nav-link home-link"><a href="/cabinet"><i class="fas fa-home"></i>Главная</a></li>
-                    <li class="nav-link task-link"><a href="/cabinet/task"><i class="fas fa-clipboard"></i>Задачи</a></li>
-                    <li class="nav-link clients-link"><a href="/cabinet/clients"><i class="fas fa-user-friends"></i>Клиенты</a></li>
-                    <li class="nav-link add-link"><a href="/cabinet/users"><i class="fas fa-plus-square"></i>Сотрудники</a></li>
-                    <li class="nav-link setings-link"><a href="/cabinet/declare"><i class="fas fa-cog"></i>Заявки</a></li>
+                    <li class="home-link"><a href="/cabinet"><i class="fas fa-home"></i>Главная</a></li>
+                    <li class="task-link"><a href="/cabinet/task"><i class="fas fa-clipboard"></i>Задачи</a></li>
+                    <li class="clients-link"><a href="/cabinet/clients"><i class="fas fa-user-friends"></i>Клиенты</a></li>
+                    <li class="add-link"><a href="/cabinet/users"><i class="fas fa-plus-square"></i>Сотрудники</a></li>
+                    <li class="setings-link"><a href="/cabinet/application"><i class="fas fa-cog"></i>Заявки</a></li>
+                    <li class="setings-link"><a href="/cabinet/transactions"><i class="fas fa-money-check-alt"></i>Сделки</a></li>
                     <li><a href="#" class="log-out-user"><i class="fas fa-sign-out-alt"></i>Выйти</a></li>
                 </ul>
             </nav>
@@ -121,7 +122,7 @@
                 <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
             </div>
         </div>
-        
+
     </main>
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script src="/libs/articmodal/jquery.arcticmodal-0.3.min.js"></script>

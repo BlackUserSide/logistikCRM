@@ -20,11 +20,12 @@
             </div>
             <nav class="navbar-nav">
                 <ul>
-                    <li class="nav-link home-link"><a href="/cabinet"><i class="fas fa-home"></i>Главная</a></li>
-                    <li class="nav-link task-link"><a href="/cabinet/task"><i class="fas fa-clipboard"></i>Задачи</a></li>
-                    <li class="nav-link clients-link"><a href="/cabinet/clients"><i class="fas fa-user-friends"></i>Клиенты</a></li>
-                    <li class="nav-link add-link"><a href="/cabinet/users"><i class="fas fa-plus-square"></i>Сотрудники</a></li>
-                    <li class="nav-link setings-link"><a href="/cabinet/declare"><i class="fas fa-cog"></i>Заявки</a></li>
+                    <li class="home-link"><a href="/cabinet"><i class="fas fa-home"></i>Главная</a></li>
+                    <li class="task-link"><a href="/cabinet/task"><i class="fas fa-clipboard"></i>Задачи</a></li>
+                    <li class="clients-link"><a href="/cabinet/clients"><i class="fas fa-user-friends"></i>Клиенты</a></li>
+                    <li class="add-link"><a href="/cabinet/users"><i class="fas fa-plus-square"></i>Сотрудники</a></li>
+                    <li class="setings-link"><a href="/cabinet/application"><i class="fas fa-cog"></i>Заявки</a></li>
+                    <li class="setings-link"><a href="/cabinet/transactions"><i class="fas fa-money-check-alt"></i>Сделки</a></li>
                     <li><a href="#" class="log-out-user"><i class="fas fa-sign-out-alt"></i>Выйти</a></li>
                 </ul>
             </nav>
@@ -77,7 +78,7 @@
                                 </td>
                                 <?php if ($_SESSION['user']['status'] == '1') : ?>
                                     <td>
-                                        <a href="#"  class="action-list-users" id="<?php echo $val['id'] ?>">Управлять</a>
+                                        <a href="#" class="action-list-users" id="<?php echo $val['id'] ?>">Управлять</a>
                                     </td>
                                 <?php endif  ?>
 
@@ -90,12 +91,12 @@
         <div style="display: none;">
             <div class="hidden-action-nick box-modal">
                 <div class="actiun-users">
-                   
+
                     <a href="#" class="dell-user-h">Удалить</a>
                     <a href="#" class="change-status-h">Изменить статус</a>
-                    
+
                 </div>
-            <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
+                <div class="box-modal_close arcticmodal-close" style="font-size: 22px;">X</div>
             </div>
         </div>
         <div style="display: none;">
@@ -125,7 +126,7 @@
                         <label>Линия Binotel</label><br>
                         <input type="text" name="servNumber" required>
                     </div>
-                    
+
                     <button type="submit">Зарегистрировать</button>
                 </form>
             </div>
