@@ -59,19 +59,20 @@
                             <td>Дата оплаты</td>
                             <td>Сумма перевода</td>
                             <td>Доход</td>
+                            
                         </thead>
                         <tbody>
                             <?php foreach ($pageData['dataTransaction'] as $key => $val) { ?>
                                 <tr>
-                                    <td><?php echo $val['date'] ?></td>
-                                    <td><?php echo $val['company'] ?></td>
-                                    <td><?php echo $val['customer'] ?></td>
-                                    <td><?php echo $val['route'] ?></td>
-                                    <td><?php echo $val['sumIns'] ?></td>
-                                    <td><?php echo $val['formPay'] ?></td>
-                                    <td><?php echo $val['datePay'] ?></td>
-                                    <td><?php echo $val['sumPay'] ?></td>
-                                    <td><?php echo $val['income'] ?></td>
+                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>" val="0"><?php echo $val['date'] ?></a></td>
+                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="1"><?php echo $val['company'] ?></a></td>
+                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="2"><?php echo $val['customer'] ?></a></td>
+                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="3"><?php echo $val['route'] ?></a></td>
+                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="4"><?php echo $val['sumIns'] ?></a></td>
+                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="5"><?php echo $val['formPay'] ?></a></td>
+                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="6"><?php echo $val['datePay'] ?></a></td>
+                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="7"><?php echo $val['sumPay'] ?></a></td>
+                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="8"><?php echo $val['income'] ?></a></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -119,6 +120,14 @@
                         <input type="text" name="income" id="incomeTransaction" required>
                     </div>
                     <button type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+        <div style="display: none;">
+            <div class="wrapper-chnage-transaction box-modal">
+                <form  class="change-trans-wrapper">
+                    
+                    <button type="submit">Редактировать</button>
                 </form>
             </div>
         </div>

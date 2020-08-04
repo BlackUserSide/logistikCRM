@@ -39,4 +39,26 @@ class TransactionsController extends Controller
             echo json_encode(array('status' => 'error'));
         }
     }
+    public function getDataChange()
+    {
+        if (!empty($_POST)) {
+            $id = $_POST['id'];
+            $data = $this->model->getDataChange($id);
+            echo json_encode(array('status' => 'success', 'data' => $data));
+        } else {
+
+        }
+    }
+    public function updateTransaction()
+    {
+        if (!empty($_POST)) {
+            $id = $_POST['id'];
+            $val = $_POST['valChange'];
+            $changeInp = $_POST['changeInp'];
+            $this->model->updateTransaction($id, $val, $changeInp);
+            echo json_encode(array('status' => 'success'));
+        } else {
+
+        }
+    }
 }

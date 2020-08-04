@@ -2163,6 +2163,40 @@ section {
   cursor: pointer;
 }
 
+.wrapper-chnage-transaction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 15px 15px;
+}
+
+.wrapper-chnage-transaction h3 {
+  text-align: center;
+}
+
+.wrapper-chnage-transaction input {
+  height: 22px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #283EFF;
+  margin-bottom: 10px;
+}
+
+.wrapper-chnage-transaction button {
+  display: inline-block;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #283EFF;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+}
+
 @media (max-width: 950px) {
   .login-wrapper {
     width: 50%;
