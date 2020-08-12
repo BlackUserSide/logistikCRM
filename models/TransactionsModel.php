@@ -28,10 +28,21 @@ class TransactionsModel extends Model
         }
         return $result;
     }
-    public function addTransaction($date, $company, $customer, $route, $sumIn, $formPay, $sumPay, $datePay, $income)
+    public function getDatTransactionUser($id) {
+        $sql = "SELECT * FROM transaction WHERE idUser = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[$row['id']] = $row;
+        }
+        return $result;
+    }
+    public function addTransaction($date, $company, $customer, $route, $sumIn, $formPay, $sumPay, $datePay, $income, $idUser, $idCompany)
     {
-        $sql = "INSERT INTO transaction (date, company, customer, route, sumIns, formPay, datePay, sumPay, sumOur, income)
-        VALUES (:date, :company, :customer, :route, :sumIn, :formPay, :datePay, :sumPay, 0, :income)";
+        $sql = "INSERT INTO transaction (date, company, customer, route, sumIns, formPay, datePay, sumPay, sumOur, income, idUser, idComp)
+        VALUES (:date, :company, :customer, :route, :sumIn, :formPay, :datePay, :sumPay, 0, :income, :idUser, :idComp)";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue('date', $date, PDO::PARAM_STR);
         $stmt->bindValue('company', $company, PDO::PARAM_STR);
@@ -42,6 +53,8 @@ class TransactionsModel extends Model
         $stmt->bindValue('datePay', $datePay, PDO::PARAM_STR);
         $stmt->bindValue('sumPay', $sumPay, PDO::PARAM_STR);
         $stmt->bindValue('income', $income, PDO::PARAM_STR);
+        $stmt->bindValue('idUser', $idUser, PDO::PARAM_STR);
+        $stmt->bindValue('idComp', $idCompany, PDO::PARAM_STR);
         $stmt->execute();
     }
     public function getDataChange($id)
@@ -90,5 +103,23 @@ class TransactionsModel extends Model
         $stmt->bindValue('inp', $changeInp, PDO::PARAM_STR);
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
+    }
+    public function getIdCompany($nameComp)
+    {
+        $sql = "SELECT id FROM company WHERE nameCompany = :name";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('name', $nameComp, PDO::PARAM_STR);
+        $stmt->execute();
+        $res = $stmt->fetchColumn();
+        return $res;
+    }
+    public function getNameCompany($id)
+    {
+        $sql = "SELECT nameCompany FROM company WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+        $res = $stmt->fetchColumn();
+        return $res;
     }
 }

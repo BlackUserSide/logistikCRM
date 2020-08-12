@@ -99,6 +99,10 @@
                                         <p class="opacitiy-p">Маршруты</p>
                                         <p class="past-p"><a href="#" class="link-routes"><?php echo $pageData['countRoutes'] ?></a></p>
                                     </div>
+                                    <div class="item-composition">
+                                        <p class="opacitiy-p">Сделки</p>
+                                        <p class="past-p"><a href="#" class="link-add-transaction" id="<?php echo $val['nameCompany'] ?>"><?php echo $pageData['countTransaction'] ?></a></p>
+                                    </div>
                                 </div>
                                 <a href="#" class="dell-card" ref="comp" id-card="<?php echo $val['id'] ?>">Удалить карточку</a>
                             <?php  } ?>
@@ -325,6 +329,50 @@
 
             </div>
 
+        </div>
+        <div style="display: none;">
+            <div class="hidden-add-transaction box-modal">
+                <form class="form-add-transaction">
+                    <div class="label-wrapper-transaction">
+                        <label>Дата</label><br>
+                        <input type="text" name="date" id="dateTransaction" required>
+                        
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Фирма</label><br>
+                        <input type="text" name="company" id="companyTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Заказчик</label><br>
+                        <input type="text" name="customer" id="customerTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Маршрут</label><br>
+                        <input type="text" name="route" id="routeTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Сумма входа</label><br>
+                        <input type="text" name="sumIn" id="sumInTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Форма оплаты</label><br>
+                        <input type="text" name="formPay" id="formPayTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Дата оплаты</label><br>
+                        <input type="text" name="datePay" id="datePayTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Сумма оплаты</label><br>
+                        <input type="text" name="sumPay" id="sumPayTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Доходы</label><br>
+                        <input type="text" name="income" id="incomeTransaction" required>
+                    </div>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
         </div>
     </main>
     <script src="/js/jquery-3.4.1.min.js"></script>

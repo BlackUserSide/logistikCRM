@@ -162,4 +162,29 @@ $(document).ready(function () {
             }
         });
     })
+    $('.form-add-transaction').submit(function (e) {
+        e.preventDefault();
+        let form = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/transactions/addTransaction",
+            data: form.serialize(),
+            dataType: "json",
+            success: function (result) {
+                if (result.status === 'success') {
+                    location.reload();
+                } else {
+                    alert('Ошибка');
+                }
+            }
+        });
+
+    })
+    $('.link-add-transaction').click(function (e) {
+        e.preventDefault();
+        $('.hidden-add-transaction').arcticmodal();
+        let nameCompany = $(this).attr('id');
+        let html = `<input type="hidden" name="nameCompany" value="${nameCompany}"/>`;
+        $('.form-add-transaction').prepend(html);
+    })
 })

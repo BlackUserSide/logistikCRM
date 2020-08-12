@@ -18,7 +18,14 @@ class TransactionsController extends Controller
         $this->pageData['titleMain'] = 'Сделки';
         $this->pageData['countTask'] = count($this->model->getTask());
         $this->pageData['title'] = 'Сделки';
-        $this->pageData['dataTransaction'] = array_reverse($this->model->getDatTransaction());
+        if ($_SESSION['user']['status'] == '1') {
+            $this->pageData['dataTransaction'] = array_reverse($this->model->getDatTransaction());
+        } else if ($_SESSION['user']['status'] == '2') {
+            $this->pageData['dataTransaction'] = array_reverse($this->model->getDatTransactionUser($_SESSION['user']['id']));
+        } else {
+            $this->pageData['dataTransaction'] = array_reverse($this->model->getDatTransaction());
+        }
+        
         $this->view->render($this->pageTpl, $this->pageData);
     }
     public function addTransaction()
@@ -33,11 +40,19 @@ class TransactionsController extends Controller
             $datePay =$_POST['datePay'];
             $sumPay = $_POST['sumPay'];
             $income = $_POST['income'];
-            $this->model->addTransaction($date, $company, $customer, $route, $sumIn, $formPay, $sumPay, $datePay, $income);
-            echo json_encode(array('status' => 'success'));
+            $idUser = $_SESSION['user']['id'];
+            $nameComp = $_POST['nameCompany'];
+            $idCompany = $this->model->getIdCompany($nameComp);
+            $this->model->addTransaction($date, $company, $customer, $route, $sumIn, $formPay, $sumPay, $datePay, $income, $idUser, $idCompany);
+            echo json_encode(array('status' => 'success', 'id' => $nameComp));
         } else {
             echo json_encode(array('status' => 'error'));
         }
+    }
+    public function testcomp() {
+        $nameComp = 'test';
+        $idCompany = $this->model->getIdCompany($nameComp); 
+        echo $idCompany;
     }
     public function getDataChange()
     {
@@ -59,6 +74,14 @@ class TransactionsController extends Controller
             echo json_encode(array('status' => 'success'));
         } else {
 
+        }
+    }
+    public function getNameCompany()
+    {
+        if (!empty($_POST)) {
+            $id = $_POST['id'];
+            $name = $this->model->getNameCompany($id);
+            echo json_encode(array('statsu' => 'success', 'data' => $name));
         }
     }
 }

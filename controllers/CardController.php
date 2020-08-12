@@ -52,6 +52,11 @@ class CardController extends Controller
         } else {
             $this->pageData['countRoutes'] = 0;
         }
+        if (!empty($this->model->getCardTransaction($idCard))) {
+            $this->pageData['countTransaction'] = count($this->model->getCardTransaction($idCard));
+        } else {
+            $this->pageData['countTransaction'] = 0;
+        }
         $this->pageData['dataCard'] = $this->model->getDataCard($idCard, $table);
         $this->pageData['titleMain'] = 'Клиенты';
         $this->pageData['countTask'] = count($this->model->getTask());

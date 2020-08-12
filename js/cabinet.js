@@ -3,7 +3,7 @@ $(document).ready(function () {
     $.each($('.name-give'), function (index, value) {
         let th = $(this);
         let idGive = th.attr('id');
-         
+
         $.ajax({
             type: "POST",
             url: "/cabinet/getNameTask",
@@ -14,12 +14,12 @@ $(document).ready(function () {
                     th.text(`${result.name}  ${result.lastName}`);
                     let substr = result.name.substring(0, 1)
                     // $('.name-substr').text(substr)
-                    let perent =th.parent();
+                    let perent = th.parent();
                     perent.children('.name-substr').text(substr);
                 }
             }
         });
     });
-
     
+
 }) 

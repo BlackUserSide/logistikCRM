@@ -163,4 +163,18 @@ $(document).ready(function () {
             }
         });
     })
+    $.each($('.active-id-company'), function (indexInArray, valueOfElement) { 
+        let th = $(this)
+        let id = th.text();
+        $.ajax({
+            type: "POST",
+            url: "/transactions/getNameCompany",
+            data: {id:id},
+            dataType: "json",
+            success: function (result) {
+                th.text(result.data);
+            }
+        });
+    });
+    
 })

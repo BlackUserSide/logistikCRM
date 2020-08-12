@@ -75,15 +75,19 @@ $(document).ready(function () {
     $('.add-form-company').submit(function (e) {
         e.preventDefault();
         let form = $(this);
+        let nameCompany = $('#nameCompany').val();
         $.ajax({
             type: "POST",
             url: "/cabinet/clients/addCompany",
             data: form.serialize(),
             dataType: "json",
             success: function (result) {
+
                 form.trigger('reset');
                 $('.box-modal_close').trigger('click');
-                $(location).attr('href', '/cabinet/clients');
+                $('.add-button-transaction').arcticmodal();
+                let html = `<input type="hidden" name="nameCompany" value="${nameCompany}"/>`;
+                $('.form-add-transaction').prepend(html);
             }
         });
     })
@@ -207,7 +211,7 @@ $(document).ready(function () {
     $('#numberCall').keyup(function (e) {
         e.preventDefault()
         let number = $(this).val();
-        
+
         $('.item-company-call').detach();
         $('.item-carr-call').detach();
         $('#p-link-trigger').css('display', 'block');
@@ -217,14 +221,14 @@ $(document).ready(function () {
             data: { number: number },
             dataType: "json",
             success: function (result) {
-               
+
                 if (result.status === 'empty') {
-                    
+
                 } else if (result.status === 'success' && result.dataInf === 'company') {
                     let htmlStatus = '';
                     if (result.statusCli == '0') {
                         htmlStatus = '<p><span class="orange-stat-table"></span></p>';
-                        
+
                     } else if (result.statusCli == '1') {
                         htmlStatus = '<p><span class="green-stat-table"></span></p>';
                     } else {
@@ -237,7 +241,7 @@ $(document).ready(function () {
                     let htmlStatus = '';
                     if (result.statusCli == '0') {
                         htmlStatus = '<p><span class="orange-stat-table"></span></p>';
-                        
+
                     } else if (result.statusCli == '1') {
                         htmlStatus = '<p><span class="green-stat-table"></span></p>';
                     } else {
@@ -254,5 +258,27 @@ $(document).ready(function () {
         e.preventDefault();
         $('.hidden-add-company').arcticmodal();
     })
-
+    $('.link-add-transaction-clients').click(function (e) {
+        e.preventDefault();
+        $('.hidden-add-transaction').arcticmodal();
+    })
+    $('.form-add-transaction').submit(function (e) {
+        e.preventDefault();
+        let form = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/cabinet/transactions/addTransaction",
+            data: form.serialize(),
+            dataType: "json",
+            success: function (result) {
+                if (result.status === 'success') {
+                    location.reload();
+                } else {
+                    alert('Ошибка');
+                }
+            }
+        });
+        
+    })
+    
 })

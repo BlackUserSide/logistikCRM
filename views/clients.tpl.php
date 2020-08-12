@@ -238,7 +238,7 @@
                     <p class="error-form-add"></p>
                     <div class="input-label-wrapper-hidden">
                         <label>Название компании</label><br>
-                        <input type="text" name="nameCompany" required>
+                        <input type="text" name="nameCompany" id="nameCompany" required>
                     </div>
                     <div class="input-label-wrapper-hidden">
                         <label>Страна</label><br>
@@ -382,6 +382,57 @@
                 <div class="wrapperr-card">
                     <p id="p-link-trigger">Такой компании нет. <a href="#" id="link-trigger">Добавить?</a></p>
                 </div>
+            </div>
+        </div>
+        <div style="display: none;">
+            <div class="add-button-transaction box-modal">
+                <p>Вы хотите добавить сделку?</p>
+                <a href="#" class="link-add-transaction-clients">Добавить</a>
+                <a href="#" class="close-link-add-transaction">Закрыть</a>
+            </div>
+        </div>
+        <div style="display: none;">
+            <div class="hidden-add-transaction box-modal">
+                <form class="form-add-transaction">
+                    <div class="label-wrapper-transaction">
+                        <label>Дата</label><br>
+                        <input type="text" name="date" id="dateTransaction" required>
+                        
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Фирма</label><br>
+                        <input type="text" name="company" id="companyTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Заказчик</label><br>
+                        <input type="text" name="customer" id="customerTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Маршрут</label><br>
+                        <input type="text" name="route" id="routeTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Сумма входа</label><br>
+                        <input type="text" name="sumIn" id="sumInTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Форма оплаты</label><br>
+                        <input type="text" name="formPay" id="formPayTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Дата оплаты</label><br>
+                        <input type="text" name="datePay" id="datePayTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Сумма оплаты</label><br>
+                        <input type="text" name="sumPay" id="sumPayTransaction" required>
+                    </div>
+                    <div class="label-wrapper-transaction">
+                        <label>Доходы</label><br>
+                        <input type="text" name="income" id="incomeTransaction" required>
+                    </div>
+                    <button type="submit">Отправить</button>
+                </form>
             </div>
         </div>
     </main>

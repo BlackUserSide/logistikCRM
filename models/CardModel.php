@@ -185,4 +185,15 @@ class CardModel extends Model
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
     }
+    public function getCardTransaction($idCard) {
+        $sql = "SELECT * FROM transaction WHERE idComp = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue('id', $idCard, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = array();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $result[$row['id']] = $row;
+        }
+        return $result;
+    }
 }

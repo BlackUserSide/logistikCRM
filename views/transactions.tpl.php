@@ -66,13 +66,19 @@
                                 <tr>
                                     <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>" val="0"><?php echo $val['date'] ?></a></td>
                                     <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="1"><?php echo $val['company'] ?></a></td>
-                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="2"><?php echo $val['customer'] ?></a></td>
+                                    <td><a href="#" class="active-change-trans active-id-company" id="<?php echo $val['id'] ?>"val="2"><?php echo $val['idComp'] ?></a></td>
                                     <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="3"><?php echo $val['route'] ?></a></td>
                                     <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="4"><?php echo $val['sumIns'] ?></a></td>
                                     <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="5"><?php echo $val['formPay'] ?></a></td>
                                     <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="6"><?php echo $val['datePay'] ?></a></td>
                                     <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="7"><?php echo $val['sumPay'] ?></a></td>
-                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="8"><?php echo $val['income'] ?></a></td>
+                                    <td><a href="#" class="active-change-trans" id="<?php echo $val['id'] ?>"val="8"><?php 
+                                        if ($_SESSION['user']['status'] == '3') {
+                                            echo 'Недоступно';
+                                        } else {
+                                            echo $val['income'];
+                                        }
+                                    ?></a></td>
                                 </tr>
                             <?php } ?>
                         </tbody>
